@@ -11,7 +11,12 @@ namespace Snake {
             Console.ReadLine();
 
             Point p2 = new Point(3,3,'#');
-            p1.getPoint();
+            p2.getPoint();
+
+            Console.ReadLine();
+
+            SnakeMove line = new SnakeMove(5, 9, 2, '%');
+            line.getLine();
 
             Console.ReadLine();
         }
