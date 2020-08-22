@@ -1,27 +1,19 @@
 ﻿using System;
+using System.Diagnostics.SymbolStore;
 
 namespace Snake {
     class Program {
         static void Main(string[] args) {
 
-            int x1 = 7;
-            int y1 = 8;
-            char sym1 = '#';
-            setSymbol(x1,y1,sym1);
+            Point p1 = new Point(5,5,'*');
+            p1.getPoint();
 
             Console.ReadLine();
 
-            int x2 = 3;
-            int y2 = 4;
-            char sym2 = '*';
-            setSymbol(x2,y2,sym2);
+            Point p2 = new Point(3,3,'#');
+            p1.getPoint();
 
             Console.ReadLine();
-        }
-
-        static void setSymbol(int x, int y, char sym) {
-            Console.SetCursorPosition(x, y);
-            Console.WriteLine(sym);
         }
 
     }
