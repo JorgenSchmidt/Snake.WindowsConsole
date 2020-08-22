@@ -14,7 +14,7 @@ namespace Snake {
 
             int x2 = 3;
             int y2 = 4;
-            char sym2 = '#';
+            char sym2 = '*';
             Console.SetCursorPosition(x2, y2);
             Console.WriteLine(sym2);
 
