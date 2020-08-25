@@ -1,18 +1,17 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.VisualBasic.CompilerServices;
 
-namespace Snake{
-    class SnakeMove{
-        List<Point> pList;
-
-        public SnakeMove(int leftX, int rightX, int y, char sym) {
+namespace Snake {
+    class SnakeMoveV{
+        private List<Point> pList;
+        private Point p;
+        public SnakeMoveV(int x, int leftY, int rightY, char sym) {
 
             pList = new List<Point>();
-            Point p;
 
-            for (int x = leftX; x <= rightX; x++) {
+            for (int y = leftY; y <= rightY; y++) {
                 p = new Point(x, y, sym);
                 pList.Add(p);
             }
@@ -24,6 +23,5 @@ namespace Snake{
                 p.getPoint();
             }
         }
-
     }
 }
