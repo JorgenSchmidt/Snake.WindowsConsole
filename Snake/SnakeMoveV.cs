@@ -7,11 +7,11 @@ namespace Snake {
     class SnakeMoveV{
         private List<Point> pList;
         private Point p;
-        public SnakeMoveV(int x, int leftY, int rightY, char sym) {
+        public SnakeMoveV(int x, int upY, int downY, char sym) {
 
             pList = new List<Point>();
 
-            for (int y = leftY; y <= rightY; y++) {
+            for (int y = upY; y <= downY; y++) {
                 p = new Point(x, y, sym);
                 pList.Add(p);
             }
