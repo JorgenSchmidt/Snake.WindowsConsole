@@ -10,9 +10,10 @@ namespace Snake{
         public SnakeMove(int leftX, int rightX, int y, char sym) {
 
             pList = new List<Point>();
+            Point p;
 
             for (int x = leftX; x <= rightX; x++) {
-                Point p = new Point(x, y, sym);
+                p = new Point(x, y, sym);
                 pList.Add(p);
             }
 
