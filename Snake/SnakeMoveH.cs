@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Snake{
-    class SnakeMoveH{
-        private List<Point> pList;
-        private Point p;
+    class SnakeMoveH : Figure {
         public SnakeMoveH(int leftX, int rightX, int y, char sym) {
 
             pList = new List<Point>();
@@ -16,12 +14,6 @@ namespace Snake{
                 pList.Add(p);
             }
 
-        }
-
-        public void getLine() {
-            foreach (Point p in pList) {
-                p.getPoint();
-            }
         }
 
     }

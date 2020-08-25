@@ -3,25 +3,24 @@ using System.Diagnostics.SymbolStore;
 
 namespace Snake {
     class Program {
+
+        private static int height;
+        private static int length;
+
         static void Main(string[] args) {
 
+            height = 28;
+            length = 100;
 
-            Point p1 = new Point(5, 5, '*');
-            p1.getPoint();
-            Console.ReadLine();
+            SnakeMoveH hLine1 = new SnakeMoveH(0, length, 0, '*');
+            hLine1.getLine();
+            SnakeMoveH hLine2 = new SnakeMoveH(0, length, height, '*');
+            hLine2.getLine();
+            SnakeMoveV vLine1 = new SnakeMoveV(0, 0, height, '*');
+            vLine1.getLine();
+            SnakeMoveV vLine2 = new SnakeMoveV(length, 0, height, '*');
+            vLine2.getLine();
 
-            Point p2 = new Point(3, 3, '#');
-            p2.getPoint();
-            Console.ReadLine();
-
-            SnakeMoveH line = new SnakeMoveH(5, 9, 2, '%');
-            line.getLine();
-            Console.ReadLine();
-
-            SnakeMoveV line2 = new SnakeMoveV(6, 2, 5, '$');
-            line2.getLine();
-            Console.ReadLine();
         }
-
-    }
-}
+    } 
+} 

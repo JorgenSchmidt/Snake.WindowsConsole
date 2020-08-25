@@ -4,9 +4,7 @@ using System.Text;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Snake {
-    class SnakeMoveV{
-        private List<Point> pList;
-        private Point p;
+    class SnakeMoveV : Figure {
         public SnakeMoveV(int x, int upY, int downY, char sym) {
 
             pList = new List<Point>();
@@ -16,12 +14,6 @@ namespace Snake {
                 pList.Add(p);
             }
 
-        }
-
-        public void getLine() {
-            foreach (Point p in pList) {
-                p.getPoint();
-            }
         }
     }
 }
