@@ -21,6 +21,10 @@ namespace Snake {
             SnakeMoveV vLine2 = new SnakeMoveV(length, 0, height, '*');
             vLine2.getLine();
 
+            Point p = new Point(2, 2, '*');
+            Snake s = new Snake(p, 4, Direction.right);
+            s.getLine();
+
         }
     } 
 } 

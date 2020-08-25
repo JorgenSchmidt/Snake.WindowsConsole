@@ -16,6 +16,6 @@ namespace Snake
                 p.getPoint();
             }
         }
-
     }
+    enum Direction { up,down,left,right }
 }

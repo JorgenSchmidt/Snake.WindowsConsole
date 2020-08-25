@@ -15,9 +15,34 @@ namespace Snake {
             sym = _sym;
         }
 
+        public Point(Point p) {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
         public void getPoint() {
             Console.SetCursorPosition(x,y);
             Console.WriteLine(sym);
+        }
+
+        public override string ToString() {
+            return x + ", " + y + ", " + sym;
+        }
+
+        public void Move(int offset, Direction dir) {
+            if (dir == Direction.right) {
+                x += offset;
+            }
+            else if (dir == Direction.left) {
+                x -= offset;
+            }
+            else if (dir == Direction.up) {
+                y -= offset;
+            }
+            else if (dir == Direction.down) {
+                y += offset;
+            }
         }
 
     }
