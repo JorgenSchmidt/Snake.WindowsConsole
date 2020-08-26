@@ -9,10 +9,8 @@ namespace Snake
         protected List<Point> pList;
         protected Point p;
 
-        public void getLine()
-        {
-            foreach (Point p in pList)
-            {
+        public void getLine() {
+            foreach (Point p in pList) {
                 p.getPoint();
             }
         }

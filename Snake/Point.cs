@@ -45,5 +45,10 @@ namespace Snake {
             }
         }
 
+        public void clear() {
+            sym = ' ';
+            getPoint();
+        }
+
     }
 }
