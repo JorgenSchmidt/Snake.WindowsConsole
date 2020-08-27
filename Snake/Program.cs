@@ -13,7 +13,7 @@ namespace Snake {
 
             height = 28;
             length = 100;
-            speed = 600;
+            speed = 100;
 
             SnakeMoveH hLine1 = new SnakeMoveH(0, length, 0, '*');
             hLine1.getLine();
