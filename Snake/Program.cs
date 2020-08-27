@@ -15,13 +15,13 @@ namespace Snake {
             length = 100;
             speed = 100;
 
-            SnakeMoveH hLine1 = new SnakeMoveH(0, length, 0, '*');
+            Horisontal hLine1 = new Horisontal(0, length, 0, '*');
             hLine1.getLine();
-            SnakeMoveH hLine2 = new SnakeMoveH(0, length, height, '*');
+            Horisontal hLine2 = new Horisontal(0, length, height, '*');
             hLine2.getLine();
-            SnakeMoveV vLine1 = new SnakeMoveV(0, 0, height, '*');
+            Vertical vLine1 = new Vertical(0, 0, height, '*');
             vLine1.getLine();
-            SnakeMoveV vLine2 = new SnakeMoveV(length, 0, height, '*');
+            Vertical vLine2 = new Vertical(length, 0, height, '*');
             vLine2.getLine();
 
             Point p = new Point(2, 2, '*');

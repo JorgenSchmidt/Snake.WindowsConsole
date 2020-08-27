@@ -4,8 +4,8 @@ using System.Text;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace Snake {
-    class SnakeMoveV : Figure {
-        public SnakeMoveV(int x, int upY, int downY, char sym) {
+    class Vertical : Figure {
+        public Vertical(int x, int upY, int downY, char sym) {
 
             pList = new List<Point>();
 

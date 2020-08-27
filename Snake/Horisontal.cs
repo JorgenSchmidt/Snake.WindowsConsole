@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Snake{
-    class SnakeMoveH : Figure {
-        public SnakeMoveH(int leftX, int rightX, int y, char sym) {
+    class Horisontal : Figure {
+        public Horisontal(int leftX, int rightX, int y, char sym) {
 
             pList = new List<Point>();
 
