@@ -7,11 +7,13 @@ namespace Snake {
 
         private static int height;
         private static int length;
+        private static int speed;
 
         static void Main(string[] args) {
 
             height = 28;
             length = 100;
+            speed = 600;
 
             SnakeMoveH hLine1 = new SnakeMoveH(0, length, 0, '*');
             hLine1.getLine();
@@ -25,9 +27,17 @@ namespace Snake {
             Point p = new Point(2, 2, '*');
             Snake s = new Snake(p, 4, Direction.right);
             s.getLine();
-            for (int i = 0; i < 90; i++) {
+
+            while (true) {
+
+                
+                if (Console.KeyAvailable) {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    s.handleKey(key.Key);
+                }
+
+                Thread.Sleep(speed);
                 s.toDir();
-                Thread.Sleep(500);
             }
 
         }

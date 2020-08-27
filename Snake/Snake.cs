@@ -31,6 +31,25 @@ namespace Snake
             head.getPoint();
         }
 
+        public void handleKey(ConsoleKey key) {
+            if (key == ConsoleKey.LeftArrow)
+            {
+                dir = Direction.left;
+            }
+            else if (key== ConsoleKey.RightArrow)
+            {
+                dir = Direction.right;
+            }
+            else if (key == ConsoleKey.DownArrow)
+            {
+                dir = Direction.down;
+            }
+            else if (key == ConsoleKey.UpArrow)
+            {
+                dir = Direction.up;
+            }
+        }
+
         public Point getMeNextPoint() {
             Point head = pList.Last();
             Point nextPoint = new Point(head);
