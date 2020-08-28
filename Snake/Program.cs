@@ -28,6 +28,10 @@ namespace Snake {
             Snake s = new Snake(p, 4, Direction.right);
             s.getLine();
 
+            SpawnFood foodspawner = new SpawnFood(length, height, '$');
+            Point food = foodspawner.foodSP();
+            food.getPoint();
+
             while (true) {
 
                 
