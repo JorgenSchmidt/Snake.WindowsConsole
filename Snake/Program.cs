@@ -27,6 +27,10 @@ namespace Snake {
 
             while (true) {
 
+                if (wall.isHit(s) || s.isHitTail()) {
+                    break;
+                }
+
                 if (s.eat(food)) {
                     food = foodspawner.foodSP();
                     food.getPoint();
@@ -42,6 +46,8 @@ namespace Snake {
                 }
 
             }
+
+            
 
         }
     } 

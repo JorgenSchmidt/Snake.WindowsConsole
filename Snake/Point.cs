@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Snake {
-    class Point{
+    class Point : Figure{
         private int x;
         private int y;
         public char sym;

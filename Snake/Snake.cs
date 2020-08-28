@@ -9,13 +9,13 @@ namespace Snake
 
         Direction dir;
         
-        public Snake(Point tail, int length, Direction _dir) {
+        public Snake(Point _tail, int _length, Direction _dir) {
 
             pList = new List<Point>();
             dir = _dir;
 
-            for (int i = 0; i < length; i++) {
-                p = new Point(tail);
+            for (int i = 0; i < _length; i++) {
+                p = new Point(_tail);
                 p.Move(i, _dir);
                 pList.Add(p);
             }
@@ -46,7 +46,7 @@ namespace Snake
             {
                 dir = Direction.left;
             }
-            else if (key== ConsoleKey.RightArrow)
+            else if (key == ConsoleKey.RightArrow)
             {
                 dir = Direction.right;
             }
@@ -58,6 +58,18 @@ namespace Snake
             {
                 dir = Direction.up;
             }
+        }
+
+        internal bool isHitTail() {
+
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++) {
+                if (head.IsHit(pList[i])) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public Point getMeNextPoint() {
