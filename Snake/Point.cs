@@ -7,7 +7,7 @@ namespace Snake {
     class Point{
         private int x;
         private int y;
-        private char sym;
+        public char sym;
 
         public Point(int _x, int _y, char _sym) {
             x = _x;
@@ -48,6 +48,10 @@ namespace Snake {
         public void clear() {
             sym = ' ';
             getPoint();
+        }
+
+        public bool IsHit(Point _p) {
+            return (_p.x == this.x) && (_p.y == this.y);
         }
 
     }
