@@ -58,6 +58,7 @@ namespace Snake
             {
                 dir = Direction.up;
             }
+
         }
 
         internal bool isHitTail() {
