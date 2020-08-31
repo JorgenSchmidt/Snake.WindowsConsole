@@ -13,13 +13,13 @@ namespace Snake
             wallList = new List<Figure>();
 
             Horisontal hLine1 = new Horisontal(0, _length, 0, '+');
-            hLine1.getLine();
+            hLine1.getLine(10);
             Horisontal hLine2 = new Horisontal(0, _length, _height, '+');
-            hLine2.getLine();
+            hLine2.getLine(10);
             Vertical vLine1 = new Vertical(0, 0, _height, '+');
-            vLine1.getLine();
+            vLine1.getLine(10);
             Vertical vLine2 = new Vertical(_length, 0, _height, '+');
-            vLine2.getLine();
+            vLine2.getLine(10);
 
             wallList.Add(hLine1);
             wallList.Add(hLine2);

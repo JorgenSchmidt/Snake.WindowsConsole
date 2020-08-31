@@ -43,7 +43,6 @@ namespace Snake {
                 if (Console.KeyAvailable) {
                     ConsoleKeyInfo key = Console.ReadKey();
                     s.handleKey(key.Key);
-                    wall = new Wall(length, height);
                 }
             }
 

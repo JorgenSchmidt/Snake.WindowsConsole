@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Snake
 {
@@ -12,6 +13,15 @@ namespace Snake
         public void getLine() {
             foreach (Point p in pList) {
                 p.getPoint();
+            }
+        }
+
+        public void getLine(int _sleep)
+        {
+            foreach (Point p in pList)
+            {
+                p.getPoint();
+                Thread.Sleep(_sleep);
             }
         }
 
