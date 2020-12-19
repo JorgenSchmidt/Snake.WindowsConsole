@@ -15,52 +15,65 @@ namespace Snake {
 
             GameMenu.gameMenu();
             Console.Clear();
-            switch(GameMenu.getGameMode())
-            {
+            switch(GameMenu.getGameMode()) {
+
                 case 1: firstMode(); break;
+                case 2: secondMode(); break;
+                default: Console.WriteLine("Error. Introduced a non-existent game mode."); break;
+
             }
 
         }
 
-        private static void secondMode()
-        {
+        private static void secondMode() {
 
-            height = 21;
-            length = 75;
-            speed = 80;
-            changeSpeedAfterEat = 3;
-
+            height = 27;
+            length = 115;
+            speed = 90;
+            changeSpeedAfterEat = 2;
 
             Wall wall = new Wall(length, height);
 
             GetInformationPanel.inputTheGameInformation(length, height);
 
-            Point p = new Point(2, 2 + Wall.getStartPosition(), '*');
-            Snake s = new Snake(p, 4, Direction.right);
-            s.getLine();
+            Point p1 = new Point(2, 2 + Wall.getStartPosition(), '*');
+            Snake s1 = new Snake(p1, 4, Direction.right);
+            s1.getLine();
+            Point p2 = new Point(length - 2, height - 2 + Wall.getStartPosition(), '#');
+            Snake s2 = new Snake(p2, 4, Direction.left);
+            s2.getLine();
 
             SpawnFood foodspawner = new SpawnFood(length, height + 1 + Wall.getStartPosition(), '$');
-            Point food = foodspawner.foodSP();
-            food.getPoint();
+            Point firstFood = foodspawner.foodSP();
+            firstFood.getPoint();
+            Point secondFood = foodspawner.foodSP();
+            secondFood.getPoint();
 
             while (true)
             {
 
-                if (wall.isHit(s) || s.isHitTail())
+                if (wall.isHit(s1) || s1.isHitTail() || wall.isHit(s2) || s2.isHitTail())
                 {
                     break;
                 }
 
-                if (s.eat(food))
+                if (s1.eat(firstFood))
                 {
-                    food = foodspawner.foodSP();
-                    food.getPoint();
+                    firstFood = foodspawner.foodSP();
+                    firstFood.getPoint();
+                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    GetInformationPanel.inputTheGameInformation(length, height);
+                }
+                else if (s1.eat(secondFood))
+                {
+                    secondFood = foodspawner.foodSP();
+                    secondFood.getPoint();
                     if (speed > 10) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else
                 {
-                    s.toDir();
+                    s1.toDir();
                 }
 
                 Thread.Sleep(speed);
@@ -68,7 +81,7 @@ namespace Snake {
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
-                    s.handleKey(key.Key);
+                    s1.handleKeyArrow(key.Key);
 
                     //Осторожно, костыль!!!!!
                     for (int i = 0 + Wall.getStartPosition(); i <= height + Wall.getStartPosition(); i++)
@@ -77,6 +90,10 @@ namespace Snake {
                     }
 
                 }
+
+                // RESPAWN BLOCK!
+                food.getPoint();
+
             }
 
             GameOver.gameOver(length, height + Wall.getStartPosition());
@@ -105,7 +122,7 @@ namespace Snake {
 
             while (true)
             {
-
+             
                 if (wall.isHit(s) || s.isHitTail())
                 {
                     break;
@@ -113,6 +130,7 @@ namespace Snake {
 
                 if (s.eat(food))
                 {
+                    food.getPoint('*');
                     food = foodspawner.foodSP();
                     food.getPoint();
                     if (speed > 10) { speed -= changeSpeedAfterEat; }
@@ -123,12 +141,13 @@ namespace Snake {
                     s.toDir();
                 }
 
+
                 Thread.Sleep(speed);
 
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
-                    s.handleKey(key.Key);
+                    s.handleKeyArrow(key.Key);
 
                     //Осторожно, костыль!!!!!
                     for (int i = 0 + Wall.getStartPosition(); i <= height + Wall.getStartPosition(); i++)
@@ -137,6 +156,10 @@ namespace Snake {
                     }
 
                 }
+
+                // RESPAWN BLOCK!
+                food.getPoint();
+
             }
 
             GameOver.gameOver(length, height + Wall.getStartPosition());

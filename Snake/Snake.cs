@@ -40,7 +40,7 @@ namespace Snake {
             return false;
         }
 
-        public void handleKey(ConsoleKey key) {
+        public void handleKeyArrow(ConsoleKey key) {
             if (key == ConsoleKey.LeftArrow)
             {
                 dir = Direction.left;
@@ -54,6 +54,27 @@ namespace Snake {
                 dir = Direction.down;
             }
             else if (key == ConsoleKey.UpArrow)
+            {
+                dir = Direction.up;
+            }
+
+        }
+
+        public void handleKeyWASD(ConsoleKey key)
+        {
+            if (key == ConsoleKey.A)
+            {
+                dir = Direction.left;
+            }
+            else if (key == ConsoleKey.D)
+            {
+                dir = Direction.right;
+            }
+            else if (key == ConsoleKey.S)
+            {
+                dir = Direction.down;
+            }
+            else if (key == ConsoleKey.D)
             {
                 dir = Direction.up;
             }

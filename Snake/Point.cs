@@ -27,6 +27,12 @@ namespace Snake {
             Console.WriteLine(sym);
         }
 
+        public void getPoint(char _sym)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(_sym);
+        }
+
         public override string ToString() {
             return x + ", " + y + ", " + sym;
         }
