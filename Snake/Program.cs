@@ -3,6 +3,7 @@ using System.Diagnostics.SymbolStore;
 using System.Threading;
 
 namespace Snake {
+
     class Program {
 
         private static int height;
@@ -47,10 +48,13 @@ namespace Snake {
                 if (Console.KeyAvailable) {
                     ConsoleKeyInfo key = Console.ReadKey();
                     s.handleKey(key.Key);
+
+                    //Осторожно, костыль!!!!!
                     for (int i = 0; i<= height; i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
                     }
+
                 }
             }
 
