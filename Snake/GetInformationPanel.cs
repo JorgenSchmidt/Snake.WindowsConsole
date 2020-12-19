@@ -6,7 +6,7 @@ namespace Snake {
 
     class GetInformationPanel {
 
-        private static int score;
+        private static int score = -1;
 
         public static void changeInf() {
 

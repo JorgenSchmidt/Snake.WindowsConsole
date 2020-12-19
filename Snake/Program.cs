@@ -27,6 +27,8 @@ namespace Snake {
 
             Wall wall = new Wall(length, height);
 
+            GetInformationPanel.inputTheGameInformation(length, height);
+
             Point p = new Point(2, 2 + Wall.getStartPosition(), '*');
             Snake s = new Snake(p, 4, Direction.right);
             s.getLine();

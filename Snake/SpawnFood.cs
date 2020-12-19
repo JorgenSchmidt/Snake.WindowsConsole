@@ -20,7 +20,7 @@ namespace Snake
         public Point foodSP() {
 
             int x = rnd.Next(2, (width - 1));
-            int y = rnd.Next(2, (height - 1));
+            int y = rnd.Next(2 + Wall.getStartPosition(), (height - 1));
             return new Point(x, y, sym);
 
         }
