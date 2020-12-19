@@ -74,7 +74,7 @@ namespace Snake {
             {
                 dir = Direction.down;
             }
-            else if (key == ConsoleKey.D)
+            else if (key == ConsoleKey.W)
             {
                 dir = Direction.up;
             }
