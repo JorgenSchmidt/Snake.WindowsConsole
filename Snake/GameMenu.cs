@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snake
-{
-    class GameMenu
-    {
+namespace Snake {
+
+    class GameMenu {
+
+
+
     }
 }

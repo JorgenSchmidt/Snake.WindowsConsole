@@ -14,10 +14,10 @@ namespace Snake {
 
         }
 
-        public static void inputTheGameInformation (int _lengthOfField, int heightOfFiled) {
+        public static void inputTheGameInformation (int _lengthOfField, int _s) {
 
             changeInf();
-            Console.SetCursorPosition(_lengthOfField + 2, heightOfFiled / 2);
+            Console.SetCursorPosition(_lengthOfField / 2 - 7, 1);
             Console.Write("Your score: " + score);
 
         }
