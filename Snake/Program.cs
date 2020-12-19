@@ -39,6 +39,7 @@ namespace Snake {
                     food = foodspawner.foodSP();
                     food.getPoint();
                     if (speed > 10 ) { speed -= changeSpeedAfterEat; }
+                    GetInformationPanel.inputTheGameInformation(length, height);
                 } else {
                     s.toDir();
                 }
