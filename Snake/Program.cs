@@ -8,12 +8,15 @@ namespace Snake {
         private static int height;
         private static int length;
         private static int speed;
+        private static int changeSpeedAfterEat;
 
         static void Main(string[] args) {
 
-            height = 28;
-            length = 100;
+            height = 21;
+            length = 75;
             speed = 100;
+            changeSpeedAfterEat = 3;
+            
 
             Wall wall = new Wall(length, height) ;
 
@@ -34,6 +37,7 @@ namespace Snake {
                 if (s.eat(food)) {
                     food = foodspawner.foodSP();
                     food.getPoint();
+                    if (speed > 10 ) { speed -= changeSpeedAfterEat; }
                 } else {
                     s.toDir();
                 }
