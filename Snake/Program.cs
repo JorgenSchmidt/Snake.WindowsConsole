@@ -13,11 +13,16 @@ namespace Snake {
 
         static void Main(string[] args) {
 
-            firstMode();
+            GameMenu.gameMenu();
+            Console.Clear();
+            switch(GameMenu.getGameMode())
+            {
+                case 1: firstMode(); break;
+            }
 
         }
 
-        private static void secondDualMode()
+        private static void secondMode()
         {
 
             height = 21;
