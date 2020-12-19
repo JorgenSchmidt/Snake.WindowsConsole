@@ -14,7 +14,7 @@ namespace Snake {
 
             height = 21;
             length = 75;
-            speed = 100;
+            speed = 80;
             changeSpeedAfterEat = 3;
             
 
@@ -47,6 +47,10 @@ namespace Snake {
                 if (Console.KeyAvailable) {
                     ConsoleKeyInfo key = Console.ReadKey();
                     s.handleKey(key.Key);
+                    for (int i = 0; i<= height; i++)
+                    {
+                        Point.drawTheNotIdentificatedPoint(0, i, '+');
+                    }
                 }
             }
 

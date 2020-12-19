@@ -55,5 +55,11 @@ namespace Snake {
             return (_p.x == this.x) && (_p.y == this.y);
         }
 
+        public static void drawTheNotIdentificatedPoint(int _x, int _y, char _sym)
+        {
+            Console.SetCursorPosition(_x, _y);
+            Console.Write(_sym);
+        }
+
     }
 }
