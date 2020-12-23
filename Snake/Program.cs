@@ -129,10 +129,12 @@ namespace Snake {
 
         private static void firstMode () {
 
-            height = 21;
+            Random rnd = new Random();
+            height = 25;
             length = 75;
             speed = 80;
             changeSpeedAfterEat = 3;
+            int deltaChangeSpeedAfterEat = 0;
 
 
             Wall wall = new Wall(length, height);
@@ -160,7 +162,8 @@ namespace Snake {
                     food.getPoint('*');
                     food = foodspawner.foodSP();
                     food.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    deltaChangeSpeedAfterEat = rnd.Next(0,2);
+                    if (speed > 10) { speed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else
