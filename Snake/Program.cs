@@ -13,14 +13,26 @@ namespace Snake {
 
         static void Main(string[] args) {
 
-            GameMenu.gameMenu();
-            Console.Clear();
-            switch(GameMenu.getGameMode()) {
+            while (true)
+            {
+                GameMenu.gameMenu();
+                Console.Clear();
+                switch (GameMenu.getGameMode())
+                {
 
-                case 1: firstMode(); break;
-                case 2: secondMode(); break;
-                default: Console.WriteLine("Error. Introduced a non-existent game mode."); break;
+                    case 1: firstMode(); break;
+                    case 2: secondMode(); break;
+                    default: Console.WriteLine("Error. Introduced a non-existent game mode."); break;
 
+                }
+                Console.Clear();
+                GameMenu.confirmationOfTheContinuation();
+                if (GameMenu.getConfirmation() == 'Y' || GameMenu.getConfirmation() == 'y') { }
+                else if (GameMenu.getConfirmation() == 'N' || GameMenu.getConfirmation() == 'n') { break; }
+                else break;
+
+                GetInformationPanel.scoreToZero();
+                Console.Clear();
             }
 
         }

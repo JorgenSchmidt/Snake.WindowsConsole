@@ -7,6 +7,7 @@ namespace Snake {
     class GameMenu {
 
         private static int gameMode;
+        private static char confirmation;
 
         public static void gameMenu() {
 
@@ -31,6 +32,18 @@ namespace Snake {
         public static int getGameMode()
         {
             return gameMode;
+        }
+
+        public static void confirmationOfTheContinuation()
+        {
+            Console.WriteLine("Retry (Y) or no (N)?");
+
+            confirmation = Convert.ToChar(Console.ReadLine());
+        }
+
+        public static char getConfirmation()
+        {
+            return confirmation;
         }
 
     }

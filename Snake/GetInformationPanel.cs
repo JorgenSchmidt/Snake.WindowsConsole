@@ -14,6 +14,11 @@ namespace Snake {
 
         }
 
+        public static void scoreToZero()
+        {
+            score = -1;
+        }
+
         public static void inputTheGameInformation (int _lengthOfField, int _s) {
 
             changeInf();
