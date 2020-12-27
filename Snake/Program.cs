@@ -27,7 +27,7 @@ namespace Snake {
                 }
                 Console.Clear();
                 GameMenu.confirmationOfTheContinuation();
-                if (GameMenu.getConfirmation() == 'Y' || GameMenu.getConfirmation() == 'y') { }
+                if (GameMenu.getConfirmation() == 'Y' || GameMenu.getConfirmation() == 'y' || GameMenu.getConfirmation() == 'Н' || GameMenu.getConfirmation() == 'н') { }
                 else if (GameMenu.getConfirmation() == 'N' || GameMenu.getConfirmation() == 'n') { break; }
                 else break;
 
