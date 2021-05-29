@@ -16,7 +16,7 @@ namespace Snake {
             Console.WriteLine("4. Single Mode With Time (original snake) and other.");
             Console.WriteLine("5. Command Mode With Time (original snake) and other.");
             Console.WriteLine("6. Competitive Mode.");
-            Console.WriteLine("\n\n");
+            Console.WriteLine("\n");
             Console.WriteLine("In the Single Mode you just control one snake.");
             Console.WriteLine("In the Command Mode you with your camrad control two snakes, everyone controls only one snake.");
             Console.WriteLine("The main task is to score the highest number of points for two,");
@@ -26,7 +26,14 @@ namespace Snake {
             Console.WriteLine("In the third - game from the Sevrer (arrows). \n\n");
             Console.WriteLine("Are you ready??? \n\n");
             Console.Write("Choise the game mode: ");
-            gameMode = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                gameMode = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                gameMode = 1;
+            }
         }
 
         public static int getGameMode()
@@ -38,7 +45,14 @@ namespace Snake {
         {
             Console.WriteLine("Retry (Y) or no (N)?");
 
-            confirmation = Convert.ToChar(Console.ReadLine());
+            try
+            {
+                confirmation = Convert.ToChar(Console.ReadLine());
+            }
+            catch
+            {
+                confirmation = 'y';
+            }
         }
 
         public static char getConfirmation()
