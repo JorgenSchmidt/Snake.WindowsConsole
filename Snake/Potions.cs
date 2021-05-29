@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Snake
 {
-    class TimeCountDown
+    class Potions
     {
-
     }
 }
