@@ -6,7 +6,7 @@ using System.Text;
 namespace Snake {
     class Snake : Figure {
 
-        Direction dir;
+        private Direction dir;
         
         public Snake(Point _tail, int _length, Direction _dir) {
 
@@ -40,43 +40,70 @@ namespace Snake {
             return false;
         }
 
-        public void handleKeyArrow(ConsoleKey key) {
+        public void handleKeyArrow(ConsoleKey key) 
+        {
+            Direction _lastDirection = dir;
             if (key == ConsoleKey.LeftArrow)
             {
-                dir = Direction.left;
+                if (_lastDirection != Direction.right)
+                {
+                    dir = Direction.left;
+                }
             }
             else if (key == ConsoleKey.RightArrow)
             {
-                dir = Direction.right;
+                if (_lastDirection != Direction.left)
+                {
+                    dir = Direction.right;
+                }
             }
             else if (key == ConsoleKey.DownArrow)
             {
-                dir = Direction.down;
+                if (_lastDirection != Direction.up)
+                {
+                    dir = Direction.down;
+                }
             }
             else if (key == ConsoleKey.UpArrow)
             {
-                dir = Direction.up;
+                if (_lastDirection != Direction.down)
+                {
+                    dir = Direction.up;
+                }
             }
 
         }
 
         public void handleKeyWASD(ConsoleKey key)
         {
+            Direction _lastDirection = dir;
             if (key == ConsoleKey.A)
             {
-                dir = Direction.left;
+                if (_lastDirection != Direction.right)
+                {
+                    dir = Direction.left;
+                }
             }
             else if (key == ConsoleKey.D)
             {
-                dir = Direction.right;
+                if (_lastDirection != Direction.left)
+                {
+                    dir = Direction.right;
+                }
             }
             else if (key == ConsoleKey.S)
             {
-                dir = Direction.down;
+                if (_lastDirection != Direction.up)
+                {
+                    dir = Direction.down;
+                }
             }
             else if (key == ConsoleKey.W)
             {
-                dir = Direction.up;
+                if (_lastDirection != Direction.down)
+                {
+                    dir = Direction.up;
+                }
             }
 
         }

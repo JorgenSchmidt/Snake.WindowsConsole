@@ -22,9 +22,7 @@ namespace Snake {
             Console.WriteLine("In the third - game from the Sevrer (arrows). \n\n");
             Console.WriteLine("Are you ready??? \n\n");
             Console.Write("Choise the game mode: ");
-
             gameMode = Convert.ToInt32(Console.ReadLine());
-
         }
 
         public static int getGameMode()
