@@ -12,7 +12,11 @@ namespace Snake {
             Console.WriteLine("Game have a 3 modes:" + "\n");
             Console.WriteLine("1. Single Mode.");
             Console.WriteLine("2. Command Mode.");
-            Console.WriteLine("3. Server Command Mode.");
+            Console.WriteLine("3. Server Command Mode." );
+            Console.WriteLine("4. Single Mode With Time (original snake) and other.");
+            Console.WriteLine("5. Command Mode With Time (original snake) and other.");
+            Console.WriteLine("6. Competitive Mode.");
+            Console.WriteLine("\n\n");
             Console.WriteLine("In the Single Mode you just control one snake.");
             Console.WriteLine("In the Command Mode you with your camrad control two snakes, everyone controls only one snake.");
             Console.WriteLine("The main task is to score the highest number of points for two,");
