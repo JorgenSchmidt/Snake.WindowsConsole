@@ -41,7 +41,7 @@ namespace Snake {
         private static void fourthMode()
         {
             Random rnd = new Random();
-            TimeCountDown firstTimer = new TimeCountDown(0, 8);
+            TimeCountDown firstTimer = new TimeCountDown(0, 6);
             height = 24;
             length = 75;
             speed = 85;
@@ -101,6 +101,10 @@ namespace Snake {
 
                 if (wall.isHit(s) || s.isHitTail() || time + firstTimer.getSeconds() <= 0)
                 {
+                    if (time + firstTimer.getSeconds() <= 0)
+                    {
+                        firstTimer.writeCountDown(65, 2);
+                    }
                     break;
                 }
 
@@ -119,7 +123,7 @@ namespace Snake {
                 // RESPAWN BLOCK!
                 food.getPoint();
 
-                //Time block
+                // Time block
                 firstTimer.writeCountDown(65, 2, Convert.ToInt32(time));
             }
 

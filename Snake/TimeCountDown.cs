@@ -33,6 +33,11 @@ namespace Snake
             Console.SetCursorPosition(_x, _y);
             Console.WriteLine(secondsToString(_lastedTime));
         }
+        public void writeCountDown(int _x, int _y)
+        {
+            Console.SetCursorPosition(_x, _y);
+            Console.WriteLine("0:00          ");
+        }
 
         public string secondsToString (int _lastedTime)
         {
