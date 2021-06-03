@@ -23,7 +23,7 @@ namespace Snake {
 
             changeInf();
             Console.SetCursorPosition(_lengthOfField / 2 - 7, 1);
-            Console.Write("Your score: " + score);
+            Console.Write("Your score: " + score + "  ");
 
         }
 

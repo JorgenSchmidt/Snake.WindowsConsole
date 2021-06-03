@@ -6,5 +6,6 @@ namespace Snake
 {
     class Potions
     {
+
     }
 }

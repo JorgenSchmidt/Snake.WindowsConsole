@@ -32,7 +32,7 @@ namespace Snake {
             }
             catch
             {
-                gameMode = 1;
+                gameMode = 4;
             }
         }
 
