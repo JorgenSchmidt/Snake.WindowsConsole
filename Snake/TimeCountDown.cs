@@ -36,7 +36,7 @@ namespace Snake
         public void writeCountDown(int _x, int _y)
         {
             Console.SetCursorPosition(_x, _y);
-            Console.WriteLine("0:00          ");
+            Console.WriteLine("0:00" + "          ");
         }
 
         public string secondsToString (int _lastedTime)

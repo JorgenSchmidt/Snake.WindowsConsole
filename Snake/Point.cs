@@ -8,7 +8,12 @@ namespace Snake {
     class Point : Figure{
         private int x;
         private int y;
-        public char sym;
+        private char sym;
+
+        public void changePointSymbol(Point _targetPoint)
+        {
+            sym = _targetPoint.sym;
+        }
 
         public Point(int _x, int _y, char _sym) {
             x = _x;

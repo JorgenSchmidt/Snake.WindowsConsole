@@ -14,7 +14,7 @@ namespace Snake {
 
         }
 
-        public static void scoreToZero()
+        public static void resetScoreToZero()
         {
             score = -1;
         }

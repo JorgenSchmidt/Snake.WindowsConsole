@@ -4,37 +4,37 @@ using System.Linq;
 using System.Text;
 
 namespace Snake {
-    class Snake : Figure {
+    class TSnake : Figure {
 
         private Direction dir;
         
-        public Snake(Point _tail, int _length, Direction _dir) {
+        public TSnake(Point _tail, int _length, Direction _dir) {
 
-            pList = new List<Point>();
+            pointList = new List<Point>();
             dir = _dir;
 
             for (int i = 0; i < _length; i++) {
                 p = new Point(_tail);
                 p.Move(i, _dir);
-                pList.Add(p);
+                pointList.Add(p);
             }
 
         }
 
         internal void toDir() {
-            Point tail = pList.First();
-            pList.Remove(tail);
+            Point tail = pointList.First();
+            pointList.Remove(tail);
             Point head = getMeNextPoint();
-            pList.Add(head);
+            pointList.Add(head);
             tail.clear();
             head.getPoint();
         }
 
-        internal bool eat( Point _food) {
+        internal bool eat(Point _food) {
             Point head = getMeNextPoint();
             if (head.IsHit(_food)) {
-                _food.sym = head.sym;
-                pList.Add(_food);
+                _food.changePointSymbol(head);
+                pointList.Add(_food);
                 return true;
             }
             return false;
@@ -110,9 +110,9 @@ namespace Snake {
 
         internal bool isHitTail() {
 
-            var head = pList.Last();
-            for (int i = 0; i < pList.Count - 2; i++) {
-                if (head.IsHit(pList[i])) {
+            var head = pointList.Last();
+            for (int i = 0; i < pointList.Count - 2; i++) {
+                if (head.IsHit(pointList[i])) {
                     return true;
                 }
             }
@@ -121,7 +121,7 @@ namespace Snake {
         }
 
         public Point getMeNextPoint() {
-            Point head = pList.Last();
+            Point head = pointList.Last();
             Point nextPoint = new Point(head);
             nextPoint.Move(1, dir);
             return nextPoint;

@@ -9,7 +9,7 @@ namespace Snake
         private int width;
         private int height;
         private char sym;
-        Random rnd = new Random();
+        private Random rnd = new Random();
 
         public SpawnFood(int _width, int _height, char _sym) {
             this.width = _width;

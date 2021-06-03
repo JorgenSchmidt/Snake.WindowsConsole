@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Snake {
     
     class Wall{
 
-        List<Figure> wallList;
+        private List<Figure> wallList;
         private int sleepWall1;
         private int sleepWall2;
         private static int startPosition;

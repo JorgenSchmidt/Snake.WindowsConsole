@@ -7,11 +7,11 @@ namespace Snake{
     class Horisontal : Figure {
         public Horisontal(int leftX, int rightX, int y, char sym) {
 
-            pList = new List<Point>();
+            pointList = new List<Point>();
 
             for (int x = leftX; x <= rightX; x++) {
                 p = new Point(x, y, sym);
-                pList.Add(p);
+                pointList.Add(p);
             }
 
         }

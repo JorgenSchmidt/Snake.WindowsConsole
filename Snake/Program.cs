@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace Snake {
@@ -32,7 +31,7 @@ namespace Snake {
                 else if (GameMenu.getConfirmation() == 'N' || GameMenu.getConfirmation() == 'n') { break; }
                 else break;
 
-                GetInformationPanel.scoreToZero();
+                GetInformationPanel.resetScoreToZero();
                 Console.Clear();
             }
 
@@ -53,7 +52,7 @@ namespace Snake {
             GetInformationPanel.inputTheGameInformation(length, height);
 
             Point p = new Point(2, 2 + Wall.getStartPosition(), '*');
-            Snake s = new Snake(p, 4, Direction.right);
+            TSnake s = new TSnake(p, 4, Direction.right);
             s.getLine();
 
             SpawnFood foodspawner = new SpawnFood(length , height + 1 + Wall.getStartPosition() , '$');
@@ -84,7 +83,7 @@ namespace Snake {
                     }
                     food.getPoint();
                     deltaChangeSpeedAfterEat = rnd.Next(0, 2);
-                    if (speed > 30) { speed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
+                    if (speed > 25) { speed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
                     GetInformationPanel.inputTheGameInformation(length, height);
 
                     // changeTime logic
@@ -113,7 +112,7 @@ namespace Snake {
                     ConsoleKeyInfo key = Console.ReadKey();
                     s.handleKeyArrow(key.Key);
 
-                    //Осторожно, костыль!!!!!
+                    // Осторожно, костыль!!!!!
                     for (int i = 0 + Wall.getStartPosition(); i <= height + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
@@ -143,10 +142,10 @@ namespace Snake {
             GetInformationPanel.inputTheGameInformation(length, height);
 
             Point p1 = new Point(2, 2 + Wall.getStartPosition(), '*');
-            Snake s1 = new Snake(p1, 4, Direction.right);
+            TSnake s1 = new TSnake(p1, 4, Direction.right);
             s1.getLine();
             Point p2 = new Point(length - 2, height - 2 + Wall.getStartPosition(), '#');
-            Snake s2 = new Snake(p2, 4, Direction.left);
+            TSnake s2 = new TSnake(p2, 4, Direction.left);
             s2.getLine();
 
             SpawnFood foodspawner = new SpawnFood(length, height + 1 + Wall.getStartPosition(), '$');
@@ -163,7 +162,7 @@ namespace Snake {
                     break;
                 }
 
-                //for first snake
+                // for first snake
                 if (s1.eat(firstFood))
                 {
                     firstFood.getPoint('*');
@@ -185,7 +184,7 @@ namespace Snake {
                     s1.toDir();
                 }
 
-                //for second snake
+                // for second snake
                 if (s2.eat(firstFood))
                 {
                     firstFood.getPoint('#');
@@ -215,7 +214,7 @@ namespace Snake {
                     s1.handleKeyArrow(key.Key);
                     s2.handleKeyWASD(key.Key);
 
-                    //Осторожно, костыль!!!!!
+                    // Осторожно, костыль!!!!!
                     for (int i = 0 + Wall.getStartPosition(); i <= height + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
@@ -242,13 +241,12 @@ namespace Snake {
             changeSpeedAfterEat = 3;
             int deltaChangeSpeedAfterEat = 0;
 
-
             Wall wall = new Wall(length, height);
 
             GetInformationPanel.inputTheGameInformation(length, height);
 
             Point p = new Point(2, 2 + Wall.getStartPosition(), '*');
-            Snake s = new Snake(p, 4, Direction.right);
+            TSnake s = new TSnake(p, 4, Direction.right);
             s.getLine();
 
             SpawnFood foodspawner = new SpawnFood(length, height + 1 + Wall.getStartPosition(), '$');
@@ -269,7 +267,7 @@ namespace Snake {
                     food = foodspawner.foodSP();
                     food.getPoint();
                     deltaChangeSpeedAfterEat = rnd.Next(0,2);
-                    if (speed > 30) { speed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
+                    if (speed > 25) { speed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else
@@ -285,7 +283,7 @@ namespace Snake {
                     ConsoleKeyInfo key = Console.ReadKey();
                     s.handleKeyArrow(key.Key);
 
-                    //Осторожно, костыль!!!!!
+                    // Осторожно, костыль!!!!!
                     for (int i = 0 + Wall.getStartPosition(); i <= height + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
