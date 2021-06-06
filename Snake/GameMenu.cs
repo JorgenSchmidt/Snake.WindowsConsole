@@ -23,8 +23,10 @@ namespace Snake {
             Console.WriteLine("And not to crash into each other, into yourself, or into the wall.");
             Console.WriteLine("If at least one makes a mistake , the game ends.");
             Console.WriteLine("In second mode you and your camrad will control snakes on one computer (arrows (1) - WASD (2)),");
-            Console.WriteLine("In the third - game from the Sevrer (arrows). \n\n");
-            Console.WriteLine("Are you ready??? \n\n");
+            Console.WriteLine("In the third - game from the Sevrer (arrows).");
+            Console.WriteLine("\n4-th and 5-th gamemodes have a countdown timer and potions: ");
+            Console.WriteLine("(A) - adds 2 sec, (T) - deprives 2 sec, (D) - immediatelly kills a snakes");
+            Console.WriteLine("\n\nAre you ready??? \n\n");
             Console.Write("Choise the game mode: ");
             try
             {
