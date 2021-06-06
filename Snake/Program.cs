@@ -70,6 +70,7 @@ namespace Snake {
             SpawnPotions potions = new SpawnPotions(length, height);
             TimerCallback whenPotionGeneration = new TimerCallback(x => { potions.decisionToAddPotion(); });
             Timer potionTimer = new Timer(whenPotionGeneration, null, 0, 1000);
+            char warnDataLeakBecauseOfPotion;
 
             while (true)
             {

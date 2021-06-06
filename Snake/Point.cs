@@ -7,11 +7,6 @@ namespace Snake {
         private char sym;
         private bool active;
 
-        public void changePointSymbol(Point _targetPoint)
-        {
-            sym = _targetPoint.sym;
-        }
-
         public Point(int _x, int _y, char _sym) {
             x = _x;
             y = _y;
@@ -74,13 +69,22 @@ namespace Snake {
         }
 
         public bool IsHit(Point _p) {
-            return (_p.x == this.x) && (_p.y == this.y);
+            return (_p.x == x) && (_p.y == y);
         }
 
         public static void drawTheNotIdentificatedPoint(int _x, int _y, char _sym)
         {
             Console.SetCursorPosition(_x, _y);
             Console.Write(_sym);
+        }
+
+        public void changePointSymbol(Point _targetPoint)
+        {
+            sym = _targetPoint.sym;
+        }
+        public char getPointSymbol()
+        {
+            return sym;
         }
 
     }
