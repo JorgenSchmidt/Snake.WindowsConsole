@@ -149,5 +149,10 @@ namespace Snake {
             return potionSymbol;
         }
 
+        public static void potionSymbolOfTSnakeClassToZero()
+        {
+            potionSymbol = ' ';
+        }
+
     }
 }
