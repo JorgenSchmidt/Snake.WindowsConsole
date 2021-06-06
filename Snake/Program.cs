@@ -42,6 +42,9 @@ namespace Snake {
         private static void fifthMode()
         {
 
+            Random rnd = new Random();
+            TimeCountDown firstTimer = new TimeCountDown(0, 12);
+
             height = 27;
             length = 115;
             speed = 90;
@@ -64,30 +67,82 @@ namespace Snake {
             Point secondFood = foodspawner.foodSP();
             secondFood.getPoint();
 
+            DateTime beginTime = DateTime.Now;
+            DateTime currentTime = new DateTime();
+
+            SpawnPotions potions = new SpawnPotions(length, height);
+            TimerCallback whenPotionGeneration = new TimerCallback(x => { potions.decisionToAddPotion(); });
+            Timer potionTimer = new Timer(whenPotionGeneration, null, 0, 1000);
+            char warnDataLeakBecauseOfPotion;
+
             while (true)
             {
 
-                if (wall.isHit(s1) || wall.isHit(s2) || s1.isHitTail() || s2.isHitTail() || s1.IsHit(s2) || s2.IsHit(s1))
+                currentTime = DateTime.Now;
+                Int32 time = Convert.ToInt32((beginTime - currentTime).TotalSeconds);
+
+                if (s1.isHitPotion(potions) || s2.isHitPotion(potions))
                 {
+                    warnDataLeakBecauseOfPotion = TSnake.getPotionSymbol();
+                    if (warnDataLeakBecauseOfPotion == 'D') { break; }
+                    else if (warnDataLeakBecauseOfPotion == 'T') { firstTimer.addSeconds(-2); }
+                    else if (warnDataLeakBecauseOfPotion == 'A') { firstTimer.addSeconds(2); }
+                }
+
+                if (wall.isHit(s1) || wall.isHit(s2) || s1.isHitTail() || s2.isHitTail() || s1.IsHit(s2) || s2.IsHit(s1) || time + firstTimer.getSeconds() <= 0)
+                {
+                    potionTimer.Dispose();
+                    if (time + firstTimer.getSeconds() <= 0)
+                    {
+                        firstTimer.writeCountDown(65, 2);
+                    }
                     break;
                 }
+
+                // RESPAWN BLOCK!
+                firstFood.getPoint();
+                secondFood.getPoint();
 
                 // for first snake
                 if (s1.eat(firstFood))
                 {
-                    firstFood.getPoint('*');
+                    firstFood.getPoint('*'); 
+                    if (speed > 85)
+                    {
+                        firstFood = foodspawner.foodSP(50, 10);
+                    }
+                    else
+                    {
+                        firstFood = foodspawner.foodSP();
+                    }
                     firstFood = foodspawner.foodSP();
                     firstFood.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    else firstTimer.addSeconds(speed / 10);
                 }
                 else if (s1.eat(secondFood))
                 {
                     secondFood.getPoint('*');
+                    if (speed > 85)
+                    {
+                        secondFood = foodspawner.foodSP(50, 10);
+                    }
+                    else
+                    {
+                        secondFood = foodspawner.foodSP();
+                    }
                     secondFood = foodspawner.foodSP();
                     secondFood.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    else firstTimer.addSeconds(speed / 10);
                 }
                 else
                 {
@@ -98,25 +153,52 @@ namespace Snake {
                 if (s2.eat(firstFood))
                 {
                     firstFood.getPoint('#');
+                    if (speed > 85)
+                    {
+                        firstFood = foodspawner.foodSP(10, length, height);
+                    }
+                    else
+                    {
+                        firstFood = foodspawner.foodSP();
+                    }
                     firstFood = foodspawner.foodSP();
                     firstFood.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    else firstTimer.addSeconds(speed / 10);
                 }
                 else if (s2.eat(secondFood))
                 {
                     secondFood.getPoint('#');
+                    if (speed > 85)
+                    {
+                        secondFood = foodspawner.foodSP(10, length, height);
+                    }
+                    else
+                    {
+                        secondFood = foodspawner.foodSP();
+                    }
                     secondFood = foodspawner.foodSP();
                     secondFood.getPoint();
-                    if (speed > 30) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    else firstTimer.addSeconds(speed / 10);
                 }
                 else
                 {
                     s2.toDir();
                 }
 
-                Thread.Sleep(speed);
+                lock (potionTimer)
+                {
+                    Thread.Sleep(speed);
+                }
 
                 if (Console.KeyAvailable)
                 {
@@ -132,12 +214,12 @@ namespace Snake {
 
                 }
 
-                // RESPAWN BLOCK!
-                firstFood.getPoint();
-                secondFood.getPoint();
+                // Time block
+                firstTimer.writeCountDown(length / 5, 2, Convert.ToInt32(time));
 
             }
 
+            TSnake.potionSymbolOfTSnakeClassToZero();
             GameOver.gameOver(length, height + Wall.getStartPosition());
 
         }
@@ -208,7 +290,7 @@ namespace Snake {
 
                     // changeTime logic
                     if (speed < 50) firstTimer.addSeconds(speed / 10);
-                    else if (speed < 70 && speed >= 50)  firstTimer.addSeconds(speed / 10 - 2);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
                     else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
                     else firstTimer.addSeconds(speed / 10);
 
@@ -294,7 +376,7 @@ namespace Snake {
                     firstFood.getPoint('*');
                     firstFood = foodspawner.foodSP();
                     firstFood.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else if (s1.eat(secondFood))
@@ -302,7 +384,7 @@ namespace Snake {
                     secondFood.getPoint('*');
                     secondFood = foodspawner.foodSP();
                     secondFood.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else
@@ -316,7 +398,7 @@ namespace Snake {
                     firstFood.getPoint('#');
                     firstFood = foodspawner.foodSP();
                     firstFood.getPoint();
-                    if (speed > 10) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else if (s2.eat(secondFood))
@@ -324,7 +406,7 @@ namespace Snake {
                     secondFood.getPoint('#');
                     secondFood = foodspawner.foodSP();
                     secondFood.getPoint();
-                    if (speed > 30) { speed -= changeSpeedAfterEat; }
+                    if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
                 }
                 else
