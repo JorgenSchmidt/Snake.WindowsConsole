@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace Snake {
@@ -41,11 +42,14 @@ namespace Snake {
         {
             Random rnd = new Random();
             TimeCountDown firstTimer = new TimeCountDown(0, 6);
+
             height = 24;
             length = 75;
-            speed = 85;
-            changeSpeedAfterEat = 5;
+            speed = 80;
+            changeSpeedAfterEat = 4;
+
             int deltaChangeSpeedAfterEat = 2;
+            int initialSpeed = speed;
 
             Wall wall = new Wall(length, height);
 
@@ -53,6 +57,7 @@ namespace Snake {
 
             Point p = new Point(2, 2 + Wall.getStartPosition(), '*');
             TSnake s = new TSnake(p, 4, Direction.right);
+
             s.getLine();
 
             SpawnFood foodspawner = new SpawnFood(length , height + 1 + Wall.getStartPosition() , '$');
@@ -62,12 +67,20 @@ namespace Snake {
             DateTime beginTime = DateTime.Now;
             DateTime currentTime = new DateTime();
 
+            SpawnPotions potions = new SpawnPotions(length, height);
+            TimerCallback whenPotionGeneration = new TimerCallback(x => { potions.decisionToAddPotion(); });
+            Timer potionTimer = new Timer(whenPotionGeneration, null, 0, 1000);
+
             while (true)
             {
                 currentTime = DateTime.Now;
                 Int32 time = Convert.ToInt32((beginTime - currentTime).TotalSeconds);
 
-                Thread.Sleep(speed);
+                if (s.isHitPotion(potions))
+                {
+                    Console.SetCursorPosition(85, 17);
+                    Console.Write("KURWA!!!");
+                }
 
                 if (s.eat(food))
                 {
@@ -98,8 +111,15 @@ namespace Snake {
                     s.toDir();
                 }
 
+                // Time block
+                firstTimer.writeCountDown(65, 2, Convert.ToInt32(time));
+
+                // RESPAWN BLOCK!
+                food.getPoint();
+
                 if (wall.isHit(s) || s.isHitTail() || time + firstTimer.getSeconds() <= 0)
                 {
+                    potionTimer.Dispose();
                     if (time + firstTimer.getSeconds() <= 0)
                     {
                         firstTimer.writeCountDown(65, 2);
@@ -111,19 +131,17 @@ namespace Snake {
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     s.handleKeyArrow(key.Key);
-
-                    // Осторожно, костыль!!!!!
                     for (int i = 0 + Wall.getStartPosition(); i <= height + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
                     }
                 }
 
-                // RESPAWN BLOCK!
-                food.getPoint();
+                lock (potionTimer)
+                {
+                    Thread.Sleep(speed);
+                }
 
-                // Time block
-                firstTimer.writeCountDown(65, 2, Convert.ToInt32(time));
             }
 
             GameOver.gameOver(length, height + Wall.getStartPosition());

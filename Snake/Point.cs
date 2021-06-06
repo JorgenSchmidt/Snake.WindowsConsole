@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading;
 
 namespace Snake {
-    class Point : Figure{
+    public class Point : Figure{
         private int x;
         private int y;
         private char sym;
+        private bool active;
 
         public void changePointSymbol(Point _targetPoint)
         {
@@ -19,6 +16,15 @@ namespace Snake {
             x = _x;
             y = _y;
             sym = _sym;
+            active = true;
+        }
+
+        public Point(int _x, int _y, char _sym, bool _active)
+        {
+            x = _x;
+            y = _y;
+            sym = _sym;
+            active = _active;
         }
 
         public Point(Point p) {
@@ -60,6 +66,11 @@ namespace Snake {
         public void clear() {
             sym = ' ';
             getPoint();
+        }
+
+        public void pointDeactivate ()
+        {
+            active = false;
         }
 
         public bool IsHit(Point _p) {

@@ -42,6 +42,7 @@ namespace Snake
         public string secondsToString (int _lastedTime)
         {
             int _time = _lastedTime + seconds + minutes * 60;
+            if (_time < 0) return "Error";
             int _minutes = _time / 60;
             int _seconds = _time % 60;
             if (_seconds < 10)

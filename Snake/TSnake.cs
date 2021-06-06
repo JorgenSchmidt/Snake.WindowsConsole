@@ -32,7 +32,8 @@ namespace Snake {
 
         internal bool eat(Point _food) {
             Point head = getMeNextPoint();
-            if (head.IsHit(_food)) {
+            if (head.IsHit(_food)) 
+            {
                 _food.changePointSymbol(head);
                 pointList.Add(_food);
                 return true;
@@ -117,6 +118,20 @@ namespace Snake {
                 }
             }
 
+            return false;
+        }
+
+        public bool isHitPotion (SpawnPotions _sp)
+        {
+            List<Point> potions = _sp.getPotionsList();
+            var head = pointList.Last();
+            foreach (var currentPotion in potions) 
+            {
+                if (head.IsHit(currentPotion))
+                {
+                    return true;
+                }
+            }
             return false;
         }
 

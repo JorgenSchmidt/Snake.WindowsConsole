@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace Snake
 {
-    class Figure{
+    public class Figure{
 
         protected List<Point> pointList;
         protected Point p;
@@ -42,5 +42,5 @@ namespace Snake
         }
 
     }
-    enum Direction { up,down,left,right }
+    public enum Direction { up,down,left,right }
 }
