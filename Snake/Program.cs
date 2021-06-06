@@ -79,8 +79,10 @@ namespace Snake {
 
                 if (s.isHitPotion(potions))
                 {
-                    Console.SetCursorPosition(85, 17);
-                    Console.Write("KURWA!!!");
+                    warnDataLeakBecauseOfPotion = TSnake.getPotionSymbol();
+                    if (warnDataLeakBecauseOfPotion == 'D') { break; }
+                    else if (warnDataLeakBecauseOfPotion == 'T') { firstTimer.addSeconds(-2); }
+                    else if (warnDataLeakBecauseOfPotion == 'A') { firstTimer.addSeconds( 2); }
                 }
 
                 if (s.eat(food))

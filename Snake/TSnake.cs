@@ -6,6 +6,7 @@ using System.Text;
 namespace Snake {
     class TSnake : Figure {
 
+        private static char potionSymbol;
         private Direction dir;
         
         public TSnake(Point _tail, int _length, Direction _dir) {
@@ -129,6 +130,7 @@ namespace Snake {
             {
                 if (head.IsHit(currentPotion))
                 {
+                    potionSymbol = currentPotion.getPointSymbol();
                     return true;
                 }
             }
@@ -140,6 +142,11 @@ namespace Snake {
             Point nextPoint = new Point(head);
             nextPoint.Move(1, dir);
             return nextPoint;
+        }
+
+        public static char getPotionSymbol()
+        {
+            return potionSymbol;
         }
 
     }
