@@ -2,13 +2,13 @@
 
 namespace Snake {
     class Vertical : Figure {
-        public Vertical(int x, int upY, int downY, char sym) {
+        public Vertical(int _coordX, int _upperCoordY, int _lowerCoordY, char _symbol) {
 
             pointList = new List<Point>();
 
-            for (int y = upY; y <= downY; y++) {
-                p = new Point(x, y, sym);
-                pointList.Add(p);
+            for (int y = _upperCoordY; y <= _lowerCoordY; y++) {
+                point = new Point(_coordX, y, _symbol);
+                pointList.Add(point);
             }
 
         }

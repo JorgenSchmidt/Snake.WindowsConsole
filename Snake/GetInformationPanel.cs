@@ -17,7 +17,7 @@ namespace Snake {
             score = -1;
         }
 
-        public static void inputTheGameInformation (int _lengthOfField, int _s) {
+        public static void inputTheGameInformation (int _lengthOfField) {
 
             changeInf();
             Console.SetCursorPosition(_lengthOfField / 2 - 7, 1);

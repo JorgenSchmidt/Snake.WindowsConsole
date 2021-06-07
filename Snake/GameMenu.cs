@@ -4,7 +4,7 @@ namespace Snake {
 
     class GameMenu {
 
-        private static int gameMode;
+        private static int choiseGameMode;
         private static char confirmation;
 
         public static void gameMenu() {
@@ -30,20 +30,20 @@ namespace Snake {
             Console.Write("Choise the game mode: ");
             try
             {
-                gameMode = Convert.ToInt32(Console.ReadLine());
+                choiseGameMode = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
-                gameMode = 4;
+                choiseGameMode = 4;
             }
         }
 
         public static int getGameMode()
         {
-            return gameMode;
+            return choiseGameMode;
         }
 
-        public static void confirmationOfTheContinuation()
+        public static void confirmContunation()
         {
             Console.WriteLine("Retry (Y) or no (N)?");
 

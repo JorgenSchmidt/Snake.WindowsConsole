@@ -1,80 +1,81 @@
 ﻿using System;
 
 namespace Snake {
+
     public class Point : Figure{
-        private int x;
-        private int y;
-        private char sym;
-        private bool active;
+        private int pointCoordX;
+        private int pointCoordY;
+        private char pointSymbol;
+        private bool pointActive;
 
         public Point(int _x, int _y, char _sym) {
-            x = _x;
-            y = _y;
-            sym = _sym;
-            active = true;
+            pointCoordX = _x;
+            pointCoordY = _y;
+            pointSymbol = _sym;
+            pointActive = true;
         }
 
         public Point(int _x, int _y, char _sym, bool _active)
         {
-            x = _x;
-            y = _y;
-            sym = _sym;
-            active = _active;
+            pointCoordX = _x;
+            pointCoordY = _y;
+            pointSymbol = _sym;
+            pointActive = _active;
         }
 
-        public Point(Point p) {
-            x = p.x;
-            y = p.y;
-            sym = p.sym;
+        public Point(Point _p) {
+            pointCoordX = _p.pointCoordX;
+            pointCoordY = _p.pointCoordY;
+            pointSymbol = _p.pointSymbol;
         }
 
         public void getPoint() {
-            Console.SetCursorPosition(x,y);
-            Console.WriteLine(sym);
+            Console.SetCursorPosition(pointCoordX,pointCoordY);
+            Console.WriteLine(pointSymbol);
         }
 
         public void getPoint(char _sym)
         {
-            Console.SetCursorPosition(x, y);
+            Console.SetCursorPosition(pointCoordX, pointCoordY);
             Console.WriteLine(_sym);
         }
 
         public override string ToString() {
-            return x + ", " + y + ", " + sym;
+            return pointCoordX + ", " + pointCoordY + ", " + pointSymbol;
         }
 
-        public void Move(int offset, Direction dir) {
-            if (dir == Direction.right) {
-                x += offset;
+        public void move(int _offset, Direction _dir) {
+            if (_dir == Direction.right) {
+                pointCoordX += _offset;
             }
-            else if (dir == Direction.left) {
-                x -= offset;
+            else if (_dir == Direction.left) {
+                pointCoordX -= _offset;
             }
-            else if (dir == Direction.up) {
-                y -= offset;
+            else if (_dir == Direction.up) {
+                pointCoordY -= _offset;
             }
-            else if (dir == Direction.down) {
-                y += offset;
+            else if (_dir == Direction.down) {
+                pointCoordY += _offset;
             }
         }
 
         public void clear() {
-            sym = ' ';
+            pointSymbol = ' ';
             getPoint();
         }
 
         public void pointDeactivate ()
         {
-            active = false;
+            pointActive = false;
         }
 
         public bool pointDeactivated()
         {
-            return active;
+            return pointActive;
         }
 
-        public bool IsHit(Point _p) {
-            return (_p.x == x) && (_p.y == y);
+        public bool isHit(Point _p) {
+            return (_p.pointCoordX == pointCoordX) && (_p.pointCoordY == pointCoordY);
         }
 
         public static void drawTheNotIdentificatedPoint(int _x, int _y, char _sym)
@@ -85,11 +86,12 @@ namespace Snake {
 
         public void changePointSymbol(Point _targetPoint)
         {
-            sym = _targetPoint.sym;
+            pointSymbol = _targetPoint.pointSymbol;
         }
+
         public char getPointSymbol()
         {
-            return sym;
+            return pointSymbol;
         }
 
     }

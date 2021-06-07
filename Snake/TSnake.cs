@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Snake {
+
     class TSnake : Figure {
 
-        private Direction dir;
+        private Direction currentDirection;
         
         public TSnake(Point _tail, int _length, Direction _dir) {
 
             pointList = new List<Point>();
-            dir = _dir;
+            currentDirection = _dir;
 
             for (int i = 0; i < _length; i++) {
-                p = new Point(_tail);
-                p.Move(i, _dir);
-                pointList.Add(p);
+                point = new Point(_tail);
+                point.move(i, _dir);
+                pointList.Add(point);
             }
 
         }
 
-        internal void toDir() {
+        internal void toDirection() {
             Point tail = pointList.First();
             pointList.Remove(tail);
             Point head = getMeNextPoint();
@@ -31,7 +32,7 @@ namespace Snake {
 
         internal bool eat(Point _food) {
             Point head = getMeNextPoint();
-            if (head.IsHit(_food)) 
+            if (head.isHit(_food)) 
             {
                 _food.changePointSymbol(head);
                 pointList.Add(_food);
@@ -42,33 +43,33 @@ namespace Snake {
 
         public void handleKeyArrow(ConsoleKey key) 
         {
-            Direction _lastDirection = dir;
+            Direction _lastDirection = currentDirection;
             if (key == ConsoleKey.LeftArrow)
             {
                 if (_lastDirection != Direction.right)
                 {
-                    dir = Direction.left;
+                    currentDirection = Direction.left;
                 }
             }
             else if (key == ConsoleKey.RightArrow)
             {
                 if (_lastDirection != Direction.left)
                 {
-                    dir = Direction.right;
+                    currentDirection = Direction.right;
                 }
             }
             else if (key == ConsoleKey.DownArrow)
             {
                 if (_lastDirection != Direction.up)
                 {
-                    dir = Direction.down;
+                    currentDirection = Direction.down;
                 }
             }
             else if (key == ConsoleKey.UpArrow)
             {
                 if (_lastDirection != Direction.down)
                 {
-                    dir = Direction.up;
+                    currentDirection = Direction.up;
                 }
             }
 
@@ -76,33 +77,33 @@ namespace Snake {
 
         public void handleKeyWASD(ConsoleKey key)
         {
-            Direction _lastDirection = dir;
+            Direction _lastDirection = currentDirection;
             if (key == ConsoleKey.A)
             {
                 if (_lastDirection != Direction.right)
                 {
-                    dir = Direction.left;
+                    currentDirection = Direction.left;
                 }
             }
             else if (key == ConsoleKey.D)
             {
                 if (_lastDirection != Direction.left)
                 {
-                    dir = Direction.right;
+                    currentDirection = Direction.right;
                 }
             }
             else if (key == ConsoleKey.S)
             {
                 if (_lastDirection != Direction.up)
                 {
-                    dir = Direction.down;
+                    currentDirection = Direction.down;
                 }
             }
             else if (key == ConsoleKey.W)
             {
                 if (_lastDirection != Direction.down)
                 {
-                    dir = Direction.up;
+                    currentDirection = Direction.up;
                 }
             }
 
@@ -112,7 +113,7 @@ namespace Snake {
 
             var head = pointList.Last();
             for (int i = 0; i < pointList.Count - 2; i++) {
-                if (head.IsHit(pointList[i])) {
+                if (head.isHit(pointList[i])) {
                     return true;
                 }
             }
@@ -128,7 +129,7 @@ namespace Snake {
             foreach (var currentPotion in potions) 
             {
                 count++;
-                if (head.IsHit(currentPotion) && currentPotion.pointDeactivated())
+                if (head.isHit(currentPotion) && currentPotion.pointDeactivated())
                 {
                     _potionSymbol = currentPotion.getPointSymbol();
                     _potionNumber = count;
@@ -142,7 +143,7 @@ namespace Snake {
         public Point getMeNextPoint() {
             Point head = pointList.Last();
             Point nextPoint = new Point(head);
-            nextPoint.Move(1, dir);
+            nextPoint.move(1, currentDirection);
             return nextPoint;
         }
 

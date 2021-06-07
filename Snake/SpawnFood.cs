@@ -4,43 +4,44 @@ namespace Snake
 {
     class SpawnFood {
 
-        protected int width;
-        protected int height;
-        protected char sym;
+        protected int gameFiledLength;
+        protected int gameFieldheight;
+        protected char foodSymbol;
+        private Random randomObject;
 
-        public SpawnFood(int _width, int _height, char _sym) 
+        public SpawnFood(int _length, int _height, char _sym) 
         {
-            width = _width;
-            height = _height;
-            sym = _sym;
+            gameFiledLength = _length;
+            gameFieldheight = _height;
+            foodSymbol = _sym;
         }
 
-        public Point foodSP() 
+        public Point spawnFood() 
         {
-            Random rnd = new Random();
-            int x = rnd.Next(2, (width - 1));
-            int y = rnd.Next(2 + Wall.getStartPosition(), (height - 1));
-            return new Point(x, y, sym);
+            randomObject = new Random();
+            int x = randomObject.Next(2, (gameFiledLength - 1));
+            int y = randomObject.Next(2 + Wall.getStartPosition(), (gameFieldheight - 1));
+            return new Point(x, y, foodSymbol);
 
         }
 
-        public Point foodSP(int _xLimit, int _yLimit)
+        public Point spawnFood(int _xLimit, int _yLimit)
         {
-            Random rnd = new Random();
-            int x = rnd.Next(2, (width - 1) - _xLimit);
-            int y = rnd.Next(2 + Wall.getStartPosition(), (height - 1) - _yLimit);
+            randomObject = new Random();
+            int x = randomObject.Next(2, (gameFiledLength - 1) - _xLimit);
+            int y = randomObject.Next(2 + Wall.getStartPosition(), (gameFieldheight - 1) - _yLimit);
             if (x <= 0 || y <= 0) throw new Exception("X or Y was been less than zero");
-            return new Point(x, y, sym);
+            return new Point(x, y, foodSymbol);
 
         }
 
-        public Point foodSP(int _delta, int _length, int _width)
+        public Point spawnFood(int _delta, int _length, int _width)
         {
-            Random rnd = new Random();
-            int x = rnd.Next(_length / 2 + _delta, _length - 1);
-            int y = rnd.Next(_width / 2 + _delta + Wall.getStartPosition(), _width - 1);
+            randomObject = new Random();
+            int x = randomObject.Next(_length / 2 + _delta, _length - 1);
+            int y = randomObject.Next(_width / 2 + _delta + Wall.getStartPosition(), _width - 1);
             if (_length / 2 + _delta >= _length || _width / 2 + _delta + Wall.getStartPosition() >= _width) throw new Exception("X or Y was been less than zero");
-            return new Point(x, y, sym);
+            return new Point(x, y, foodSymbol);
 
         }
 

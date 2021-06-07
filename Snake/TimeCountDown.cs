@@ -11,9 +11,9 @@ namespace Snake
         {
             return minutes * 60 + seconds;
         }
-        public void addSeconds (int _value)
+        public void addSeconds (int _howManySecondsToAdd)
         {
-            seconds += _value;
+            seconds += _howManySecondsToAdd;
         }
 
         public TimeCountDown ()
