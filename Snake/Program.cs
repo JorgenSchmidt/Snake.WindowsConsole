@@ -219,6 +219,7 @@ namespace Snake {
 
             }
 
+            potionTimer.Dispose();
             GameOver.gameOver(length, height + Wall.getStartPosition());
 
         }
@@ -332,6 +333,7 @@ namespace Snake {
 
             }
 
+            potionTimer.Dispose();
             GameOver.gameOver(length, height + Wall.getStartPosition());
 
         }
