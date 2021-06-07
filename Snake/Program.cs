@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace Snake {
@@ -94,7 +93,7 @@ namespace Snake {
                     potionTimer.Dispose();
                     if (time + firstTimer.getSeconds() <= 0)
                     {
-                        firstTimer.writeCountDown(65, 2);
+                        firstTimer.writeCountDown(length / 5, 2);
                     }
                     break;
                 }
@@ -119,9 +118,9 @@ namespace Snake {
                     firstFood.getPoint();
                     if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
-                    if (speed < 50) firstTimer.addSeconds(speed / 10);
-                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
-                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10 - 1);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 3);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 5);
                     else firstTimer.addSeconds(speed / 10);
                 }
                 else if (s1.eat(secondFood))
@@ -139,9 +138,9 @@ namespace Snake {
                     secondFood.getPoint();
                     if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
-                    if (speed < 50) firstTimer.addSeconds(speed / 10);
-                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
-                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10 - 1);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 3);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 5);
                     else firstTimer.addSeconds(speed / 10);
                 }
                 else
@@ -165,9 +164,9 @@ namespace Snake {
                     firstFood.getPoint();
                     if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
-                    if (speed < 50) firstTimer.addSeconds(speed / 10);
-                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
-                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10 - 1);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 3);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 5);
                     else firstTimer.addSeconds(speed / 10);
                 }
                 else if (s2.eat(secondFood))
@@ -185,9 +184,9 @@ namespace Snake {
                     secondFood.getPoint();
                     if (speed > 40) { speed -= changeSpeedAfterEat; }
                     GetInformationPanel.inputTheGameInformation(length, height);
-                    if (speed < 50) firstTimer.addSeconds(speed / 10);
-                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 2);
-                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 4);
+                    if (speed < 50) firstTimer.addSeconds(speed / 10 - 1);
+                    else if (speed < 70 && speed >= 50) firstTimer.addSeconds(speed / 10 - 3);
+                    else if (speed < 100 && speed >= 70) firstTimer.addSeconds(speed / 10 - 5);
                     else firstTimer.addSeconds(speed / 10);
                 }
                 else

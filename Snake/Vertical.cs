@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using System.Collections.Generic;
 
 namespace Snake {
     class Vertical : Figure {

@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Snake{
     class Horisontal : Figure {
