@@ -73,7 +73,8 @@ namespace Snake {
             SpawnPotions potions = new SpawnPotions(length, height);
             TimerCallback whenPotionGeneration = new TimerCallback(x => { potions.decisionToAddPotion(); });
             Timer potionTimer = new Timer(whenPotionGeneration, null, 0, 1000);
-            char warnDataLeakBecauseOfPotion;
+            char potionSymbol = ' ';
+            int potionNumberOnPotionList = -1;
 
             while (true)
             {
@@ -81,12 +82,11 @@ namespace Snake {
                 currentTime = DateTime.Now;
                 Int32 time = Convert.ToInt32((beginTime - currentTime).TotalSeconds);
 
-                if (s1.isHitPotion(potions) || s2.isHitPotion(potions))
+                if (s1.isHitPotion(potions, ref potionSymbol, ref potionNumberOnPotionList) || s2.isHitPotion(potions, ref potionSymbol, ref potionNumberOnPotionList))
                 {
-                    warnDataLeakBecauseOfPotion = TSnake.getPotionSymbol();
-                    if (warnDataLeakBecauseOfPotion == 'D') { break; }
-                    else if (warnDataLeakBecauseOfPotion == 'T') { firstTimer.addSeconds(-2); }
-                    else if (warnDataLeakBecauseOfPotion == 'A') { firstTimer.addSeconds(2); }
+                    if (potionSymbol == 'D') { break; }
+                    else if (potionSymbol == 'T') { firstTimer.addSeconds(-2); potions.deactivatingPotion(potionNumberOnPotionList); }
+                    else if (potionSymbol == 'A') { firstTimer.addSeconds(2); potions.deactivatingPotion(potionNumberOnPotionList); }
                 }
 
                 if (wall.isHit(s1) || wall.isHit(s2) || s1.isHitTail() || s2.isHitTail() || s1.IsHit(s2) || s2.IsHit(s1) || time + firstTimer.getSeconds() <= 0)
@@ -219,7 +219,6 @@ namespace Snake {
 
             }
 
-            TSnake.potionSymbolOfTSnakeClassToZero();
             GameOver.gameOver(length, height + Wall.getStartPosition());
 
         }
@@ -256,19 +255,19 @@ namespace Snake {
             SpawnPotions potions = new SpawnPotions(length, height);
             TimerCallback whenPotionGeneration = new TimerCallback(x => { potions.decisionToAddPotion(); });
             Timer potionTimer = new Timer(whenPotionGeneration, null, 0, 1000);
-            char warnDataLeakBecauseOfPotion;
+            char potionSymbol=' ';
+            int potionNumberOnPotionList = -1;
 
             while (true)
             {
                 currentTime = DateTime.Now;
                 Int32 time = Convert.ToInt32((beginTime - currentTime).TotalSeconds);
 
-                if (s.isHitPotion(potions))
+                if (s.isHitPotion(potions, ref potionSymbol, ref potionNumberOnPotionList))
                 {
-                    warnDataLeakBecauseOfPotion = TSnake.getPotionSymbol();
-                    if (warnDataLeakBecauseOfPotion == 'D') { break; }
-                    else if (warnDataLeakBecauseOfPotion == 'T') { firstTimer.addSeconds(-2); }
-                    else if (warnDataLeakBecauseOfPotion == 'A') { firstTimer.addSeconds( 2); }
+                    if (potionSymbol == 'D') { break; }
+                    else if (potionSymbol == 'T') { firstTimer.addSeconds(-2); potions.deactivatingPotion(potionNumberOnPotionList); }
+                    else if (potionSymbol == 'A') { firstTimer.addSeconds( 2); potions.deactivatingPotion(potionNumberOnPotionList); }
                 }
 
                 if (s.eat(food))
@@ -333,7 +332,6 @@ namespace Snake {
 
             }
 
-            TSnake.potionSymbolOfTSnakeClassToZero();
             GameOver.gameOver(length, height + Wall.getStartPosition());
 
         }

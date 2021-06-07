@@ -68,6 +68,11 @@ namespace Snake {
             active = false;
         }
 
+        public bool pointDeactivated()
+        {
+            return active;
+        }
+
         public bool IsHit(Point _p) {
             return (_p.x == x) && (_p.y == y);
         }

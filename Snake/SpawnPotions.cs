@@ -60,6 +60,11 @@ namespace Snake
             return potionsList;
         }
 
+        public void deactivatingPotion(int _potionNumber)
+        {
+            potionsList[_potionNumber].pointDeactivate();
+        }
+
     }
 
 }

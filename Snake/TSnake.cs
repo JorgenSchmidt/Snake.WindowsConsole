@@ -6,7 +6,6 @@ using System.Text;
 namespace Snake {
     class TSnake : Figure {
 
-        private static char potionSymbol;
         private Direction dir;
         
         public TSnake(Point _tail, int _length, Direction _dir) {
@@ -122,15 +121,19 @@ namespace Snake {
             return false;
         }
 
-        public bool isHitPotion (SpawnPotions _sp)
+        public bool isHitPotion (SpawnPotions _sp, ref char _potionSymbol, ref int _potionNumber)
         {
             List<Point> potions = _sp.getPotionsList();
             var head = pointList.Last();
+            var count = -1;
             foreach (var currentPotion in potions) 
             {
-                if (head.IsHit(currentPotion))
+                count++;
+                if (head.IsHit(currentPotion) && currentPotion.pointDeactivated())
                 {
-                    potionSymbol = currentPotion.getPointSymbol();
+                    _potionSymbol = currentPotion.getPointSymbol();
+                    _potionNumber = count;
+                    if (_potionNumber < 0) throw new Exception("Potion number was been less than zero");
                     return true;
                 }
             }
@@ -144,15 +147,6 @@ namespace Snake {
             return nextPoint;
         }
 
-        public static char getPotionSymbol()
-        {
-            return potionSymbol;
-        }
-
-        public static void potionSymbolOfTSnakeClassToZero()
-        {
-            potionSymbol = ' ';
-        }
 
     }
 }
