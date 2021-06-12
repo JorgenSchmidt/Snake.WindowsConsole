@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "exyiwWnoqUWsGcvALeO5CTZwJiRU2tmhxhRtQnl4hEKyS+JpGMS2/JYSjPPW50yRjQsN1pKAinEUFAvY0OaU/A==",
+  "dgSpecHash": "+nOuCVrJFHrk+H7aGHjSGI6aemtcrnoWaoI1duoY9qJgFJdaqtT5kJLfWNF1AoiigIPnxBmu9AKA+umUkwvSow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\SnakeTest\\SnakeTest.csproj",
+  "projectFilePath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\SnakeTest\\SnakeTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joe\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\Joe\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

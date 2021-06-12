@@ -14,7 +14,7 @@ namespace Snake {
             currentDirection = _dir;
 
             for (int i = 0; i < _length; i++) {
-                point = new Point(_tail);
+                Point point = new Point(_tail);
                 point.move(i, _dir);
                 pointList.Add(point);
             }

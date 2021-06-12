@@ -7,8 +7,8 @@ namespace Snake {
             pointList = new List<Point>();
 
             for (int y = _upperCoordY; y <= _lowerCoordY; y++) {
-                point = new Point(_coordX, y, _symbol);
-                pointList.Add(point);
+                Point _point = new Point(_coordX, y, _symbol);
+                pointList.Add(_point);
             }
 
         }

@@ -2,7 +2,8 @@
 
 namespace Snake {
 
-    public class Point : Figure{
+    public class Point : Figure {
+
         private int pointCoordX;
         private int pointCoordY;
         private char pointSymbol;

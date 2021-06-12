@@ -8,6 +8,7 @@ namespace Snake {
         private static int gameFiledLength;
         private static int gameFiledHeigth;
         private static int changeSpeedAfterEat;
+
         // Param gameSpeed named as gameSpeed because affect the game as a whole, not only snakes
         private static int gameSpeed;
 
@@ -43,7 +44,7 @@ namespace Snake {
         {
 
             Random randomObject = new Random();
-            TimeCountDown firstTimer = new TimeCountDown(0, 12);
+            TimeCountDown firstTimer = new TimeCountDown(0, 14);
 
             gameFiledLength = 115;
             gameFiledHeigth = 27;
@@ -96,7 +97,6 @@ namespace Snake {
 
                 if (wall.isHit(firstSnake) || wall.isHit(secondSnake) || firstSnake.isHitTail() || secondSnake.isHitTail() || firstSnake.IsHit(secondSnake) || secondSnake.IsHit(firstSnake) || time + firstTimer.getSeconds() <= 0)
                 {
-                    potionTimer.Dispose();
                     if (time + firstTimer.getSeconds() <= 0)
                     {
                         firstTimer.writeCountDown(gameFiledLength / 5, 2);

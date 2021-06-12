@@ -6,7 +6,6 @@ namespace Snake
     public class Figure{
 
         protected List<Point> pointList;
-        protected Point point;
 
         public void getLine() {
             foreach (Point p in pointList) {

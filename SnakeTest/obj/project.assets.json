@@ -5739,11 +5739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\SnakeTest\\SnakeTest.csproj",
+      "projectUniqueName": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\SnakeTest\\SnakeTest.csproj",
       "projectName": "SnakeTest",
-      "projectPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\SnakeTest\\SnakeTest.csproj",
+      "projectPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\SnakeTest\\SnakeTest.csproj",
       "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\SnakeTest\\obj\\",
+      "outputPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\SnakeTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5764,8 +5764,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj": {
-              "projectPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj"
+            "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj": {
+              "projectPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj"
             }
           }
         }
@@ -5812,7 +5812,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,8 +9,8 @@ namespace Snake{
             pointList = new List<Point>();
 
             for (int x = _leftBorderByX; x <= _rightBorderByX; x++) {
-                point = new Point(x, _y, _sym);
-                pointList.Add(point);
+                Point _point = new Point(x, _y, _sym);
+                pointList.Add(_point);
             }
 
         }

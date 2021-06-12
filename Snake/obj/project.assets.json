@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj",
+      "projectUniqueName": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj",
       "projectName": "Snake",
-      "projectPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj",
+      "projectPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj",
       "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\obj\\",
+      "outputPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
