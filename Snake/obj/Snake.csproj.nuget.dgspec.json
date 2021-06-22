@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj": {}
+    "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj": {
+    "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj",
+        "projectUniqueName": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj",
         "projectName": "Snake",
-        "projectPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\Snake.csproj",
+        "projectPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj",
         "packagesPath": "C:\\Users\\Joe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joe\\Desktop\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_01\\Snake\\obj\\",
+        "outputPath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Joe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -52,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

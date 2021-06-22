@@ -1,0 +1,26 @@
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\bin\Debug\netcoreapp3.1\Snake.exe
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\bin\Debug\netcoreapp3.1\Snake.deps.json
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\bin\Debug\netcoreapp3.1\Snake.runtimeconfig.json
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\bin\Debug\netcoreapp3.1\Snake.runtimeconfig.dev.json
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\bin\Debug\netcoreapp3.1\Snake.dll
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\bin\Debug\netcoreapp3.1\Snake.pdb
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.AssemblyInfoInputs.cache
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.AssemblyInfo.cs
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.csproj.CoreCompileInputs.cache
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.dll
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.pdb
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.genruntimeconfig.cache
+C:\Users\Joe\Desktop\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_01\Snake\obj\Debug\netcoreapp3.1\Snake.csproj.AssemblyReference.cache
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\bin\Debug\netcoreapp3.1\Snake.exe
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\bin\Debug\netcoreapp3.1\Snake.deps.json
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\bin\Debug\netcoreapp3.1\Snake.runtimeconfig.json
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\bin\Debug\netcoreapp3.1\Snake.runtimeconfig.dev.json
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\bin\Debug\netcoreapp3.1\Snake.dll
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\bin\Debug\netcoreapp3.1\Snake.pdb
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.csproj.AssemblyReference.cache
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.AssemblyInfoInputs.cache
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.AssemblyInfo.cs
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.csproj.CoreCompileInputs.cache
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.dll
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.pdb
+D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.genruntimeconfig.cache
