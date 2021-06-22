@@ -41,11 +41,13 @@ namespace Snake {
             Console.WriteLine(_sym);
         }
 
-        public override string ToString() {
+        public override string ToString() 
+        {
             return pointCoordX + ", " + pointCoordY + ", " + pointSymbol;
         }
 
-        public void move(int _offset, Direction _dir) {
+        public void move(int _offset, Direction _dir) 
+        {
             if (_dir == Direction.right) {
                 pointCoordX += _offset;
             }
@@ -60,7 +62,8 @@ namespace Snake {
             }
         }
 
-        public void clear() {
+        public void clear() 
+        {
             pointSymbol = ' ';
             getPoint();
         }
@@ -75,7 +78,8 @@ namespace Snake {
             return pointActive;
         }
 
-        public bool isHit(Point _p) {
+        public bool isHit(Point _p) 
+        {
             return (_p.pointCoordX == pointCoordX) && (_p.pointCoordY == pointCoordY);
         }
 

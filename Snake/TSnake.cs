@@ -21,7 +21,8 @@ namespace Snake {
 
         }
 
-        internal void toDirection() {
+        internal void toDirection() 
+        {
             Point tail = pointList.First();
             pointList.Remove(tail);
             Point head = getMeNextPoint();
@@ -39,6 +40,14 @@ namespace Snake {
                 return true;
             }
             return false;
+        }
+
+        public Point getMeNextPoint()
+        {
+            Point head = pointList.Last();
+            Point nextPoint = new Point(head);
+            nextPoint.move(1, currentDirection);
+            return nextPoint;
         }
 
         public void handleKeyArrow(ConsoleKey key) 
@@ -139,14 +148,6 @@ namespace Snake {
             }
             return false;
         }
-
-        public Point getMeNextPoint() {
-            Point head = pointList.Last();
-            Point nextPoint = new Point(head);
-            nextPoint.move(1, currentDirection);
-            return nextPoint;
-        }
-
 
     }
 }
