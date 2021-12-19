@@ -4,6 +4,7 @@ namespace Snake{
 
     class Horisontal : Figure {
 
+        // For initialization some horisontal figure (this methods cant draws figure)
         public Horisontal(int _leftBorderByX, int _rightBorderByX, int _y, char _sym) {
 
             pointList = new List<Point>();

@@ -4,10 +4,14 @@ namespace Snake
 {
     class SpawnFood {
 
+        private Random randomObject;
+
+        // Used to object spawns inside gamefield
         protected int gameFiledLength;
         protected int gameFieldheight;
+
+        // For food symbol
         protected char foodSymbol;
-        private Random randomObject;
 
         public SpawnFood(int _length, int _height, char _sym) 
         {
@@ -16,6 +20,7 @@ namespace Snake
             foodSymbol = _sym;
         }
 
+        // Used to adding during initialization and respawn food
         public Point spawnFood() 
         {
             randomObject = new Random();
@@ -25,6 +30,7 @@ namespace Snake
 
         }
 
+        // Used for hard modes, when the player has limited time to get to the food. This has to spawn food in the nearst player location
         public Point spawnFood(int _xLimit, int _yLimit)
         {
             randomObject = new Random();
@@ -35,6 +41,7 @@ namespace Snake
 
         }
 
+        // Used for two players mode, when necessary that the food appears near the second player
         public Point spawnFood(int _delta, int _length, int _width)
         {
             randomObject = new Random();

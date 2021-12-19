@@ -24,3 +24,17 @@ D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработк
 D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.dll
 D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.pdb
 D:\Program Files (x86)\Новая папка (4)\ИнфМат\Разработка ПО\С#\Проекты\WithGIT\P_06\Snake\obj\Debug\netcoreapp3.1\Snake.genruntimeconfig.cache
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\bin\Debug\netcoreapp3.1\Snake.exe
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\bin\Debug\netcoreapp3.1\Snake.deps.json
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\bin\Debug\netcoreapp3.1\Snake.runtimeconfig.json
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\bin\Debug\netcoreapp3.1\Snake.runtimeconfig.dev.json
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\bin\Debug\netcoreapp3.1\Snake.dll
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\bin\Debug\netcoreapp3.1\Snake.pdb
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.csproj.AssemblyReference.cache
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.AssemblyInfoInputs.cache
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.AssemblyInfo.cs
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.csproj.CoreCompileInputs.cache
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.dll
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.pdb
+D:\ProgramData\Projects\Snake.WindowsConsole\Snake\obj\Debug\netcoreapp3.1\Snake.genruntimeconfig.cache

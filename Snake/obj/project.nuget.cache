@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h8OI3rKdqJCHpZo9pXGp1u8TGUMtxIJytcelddd7c7vXGbA7XSeYPEqQTEXznIcIRDAzvxP2Z3CpgoWQK+iLwA==",
+  "dgSpecHash": "039/USWOoI5cRAB4HP86ZaMZLuSaHZMDwy2bU7Tj9IfO3oXv5RdGQm64JTTyWBdWa3hhFri+sf724HoS2grJ5g==",
   "success": true,
-  "projectFilePath": "D:\\Program Files (x86)\\Новая папка (4)\\ИнфМат\\Разработка ПО\\С#\\Проекты\\WithGIT\\P_06\\Snake\\Snake.csproj",
+  "projectFilePath": "D:\\ProgramData\\Projects\\Snake.WindowsConsole\\Snake\\Snake.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

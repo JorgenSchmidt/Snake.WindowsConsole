@@ -7,15 +7,16 @@ namespace Snake {
         private static int choiseGameMode;
         private static char confirmation;
 
+        // Main game menu
         public static void gameMenu() {
 
             Console.WriteLine("Game have a 3 modes:" + "\n");
             Console.WriteLine("1. Single Mode.");
             Console.WriteLine("2. Command Mode.");
-            Console.WriteLine("3. Server Command Mode." );
+            Console.WriteLine("3. Server Command Mode. (In dev)" );
             Console.WriteLine("4. Single Mode With Time (original snake) and other.");
             Console.WriteLine("5. Command Mode With Time (original snake) and other.");
-            Console.WriteLine("6. Competitive Mode.");
+            Console.WriteLine("6. Competitive Mode. (In dev)");
             Console.WriteLine("\n");
             Console.WriteLine("In the Single Mode you just control one snake.");
             Console.WriteLine("In the Command Mode you with your camrad control two snakes, everyone controls only one snake.");
@@ -38,11 +39,15 @@ namespace Snake {
             }
         }
 
+        // For return choised game mode (using in Programm for launch target game mode)
+        // Incorrected input calls fourth game mode
         public static int getGameMode()
         {
             return choiseGameMode;
         }
 
+        // For confirm the contunation
+        // Incorrected input will continue game menu cycle
         public static void confirmContunation()
         {
             Console.WriteLine("Retry (Y) or no (N)?");
@@ -57,6 +62,7 @@ namespace Snake {
             }
         }
 
+        // Lets give user confirmation
         public static char getConfirmation()
         {
             return confirmation;

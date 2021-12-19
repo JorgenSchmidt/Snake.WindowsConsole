@@ -2,7 +2,7 @@
 
 namespace Snake {
 
-    class GetInformationPanel {
+    class InformationPanel {
 
         private static int score = -1;
 

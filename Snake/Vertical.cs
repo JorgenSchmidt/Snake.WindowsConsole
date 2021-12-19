@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 
 namespace Snake {
+
     class Vertical : Figure {
+
+        // For initialization some vertical figure (this methods cant draws figure)
         public Vertical(int _coordX, int _upperCoordY, int _lowerCoordY, char _symbol) {
 
             pointList = new List<Point>();
@@ -12,5 +15,7 @@ namespace Snake {
             }
 
         }
+
     }
+
 }

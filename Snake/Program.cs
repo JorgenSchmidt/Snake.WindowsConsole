@@ -3,21 +3,30 @@ using System.Threading;
 
 namespace Snake {
 
+    // This class has descirption and realization of the game menu cycle (GMC) and game cycle (GC).
     class Program {
 
+        // This params determine size of game field.
         private static int gameFiledLength;
         private static int gameFiledHeigth;
-        private static int changeSpeedAfterEat;
 
-        // Param gameSpeed named as gameSpeed because affect the game as a whole, not only snakes
-        private static int gameSpeed;
+        // This params determine game delay parameters (delay is inversely proportional to speed).
+        private static int changeDelayAfterEat;
+        private static int gameDelayAfterStep;
 
         static void Main(string[] args) {
 
+            // Game menu cycle description: 
+            // 1. User get game menu where can choises game mode
+            // 2. After user get game interface 
+            // 3. When the user falls, the user will be able to choose to continue the game menu cycle.
             while (true)
             {
+                // First stage of GMC
                 GameMenu.gameMenu();
                 Console.Clear();
+
+                // Second stage of GMC
                 switch (GameMenu.getGameMode())
                 {
 
@@ -28,32 +37,48 @@ namespace Snake {
                     default: Console.WriteLine("Error. Introduced a non-existent game mode."); break;
 
                 }
+
+                // Third stage of GMCу
                 Console.Clear();
                 GameMenu.confirmContunation();
                 if (GameMenu.getConfirmation() == 'Y' || GameMenu.getConfirmation() == 'y' || GameMenu.getConfirmation() == 'Н' || GameMenu.getConfirmation() == 'н') { }
                 else if (GameMenu.getConfirmation() == 'N' || GameMenu.getConfirmation() == 'n') { break; }
                 else break;
 
-                GetInformationPanel.resetScoreToZero();
+                InformationPanel.resetScoreToZero();
                 Console.Clear();
             }
 
         }
 
+        // Typical game cycle (GC) description:
+        // 1. Initialization configure parameters as game field size and game speed parameters (initial delay and change delay after eat)
+        // 2. Drawing walls and game panels
+        // 3. Initialization game objects (snake, food and potion objects)
+        // 4. Begin the game cycle
+        // 5. When the user falls, calls the game over menu and if necessary, the counters are reset to zero
+
         private static void fifthMode()
         {
 
             Random randomObject = new Random();
-            TimeCountDown firstTimer = new TimeCountDown(0, 14);
 
+            // First stage
             gameFiledLength = 115;
             gameFiledHeigth = 27;
-            gameSpeed = 90;
-            changeSpeedAfterEat = 2;
+            gameDelayAfterStep = 90;
+            changeDelayAfterEat = 2;
 
+            // Second stage
+            TimeCountDown firstTimer = new TimeCountDown(0, 14);
             Wall wall = new Wall(gameFiledLength, gameFiledHeigth);
 
-            GetInformationPanel.inputTheGameInformation(gameFiledLength);
+            DateTime beginTime = DateTime.Now;
+            DateTime currentTime = new DateTime();
+
+            InformationPanel.inputTheGameInformation(gameFiledLength);
+
+            // Third stage
 
             // Set coords and snake symbol (*) to begin point for snake of first gamer
             Point beginSnakePoint_1 = new Point(2, 2 + Wall.getStartPosition(), '*');
@@ -73,15 +98,13 @@ namespace Snake {
             Point secondFood = foodspawner.spawnFood();
             secondFood.getPoint();
 
-            DateTime beginTime = DateTime.Now;
-            DateTime currentTime = new DateTime();
-
             SpawnPotions potions = new SpawnPotions(gameFiledLength, gameFiledHeigth);
             TimerCallback whenPotionGeneration = new TimerCallback(x => { potions.decisionToAddPotion(); });
             Timer potionTimer = new Timer(whenPotionGeneration, null, 0, 1000);
             char drinkedPotionSymbol = ' ';
             int potionNumberOnPotionList = -1;
 
+            // Fourth stage
             while (true)
             {
 
@@ -112,7 +135,7 @@ namespace Snake {
                 if (firstSnake.eat(firstFood))
                 {
                     firstFood.getPoint('*'); 
-                    if (gameSpeed > 85)
+                    if (gameDelayAfterStep > 85)
                     {
                         firstFood = foodspawner.spawnFood(50, 10);
                     }
@@ -122,17 +145,17 @@ namespace Snake {
                     }
                     firstFood = foodspawner.spawnFood();
                     firstFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
-                    if (gameSpeed < 50) firstTimer.addSeconds(gameSpeed / 10 - 1);
-                    else if (gameSpeed < 70 && gameSpeed >= 50) firstTimer.addSeconds(gameSpeed / 10 - 3);
-                    else if (gameSpeed < 100 && gameSpeed >= 70) firstTimer.addSeconds(gameSpeed / 10 - 5);
-                    else firstTimer.addSeconds(gameSpeed / 10);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep < 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 1);
+                    else if (gameDelayAfterStep < 70 && gameDelayAfterStep >= 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 3);
+                    else if (gameDelayAfterStep < 100 && gameDelayAfterStep >= 70) firstTimer.addSeconds(gameDelayAfterStep / 10 - 5);
+                    else firstTimer.addSeconds(gameDelayAfterStep / 10);
                 }
                 else if (firstSnake.eat(secondFood))
                 {
                     secondFood.getPoint('*');
-                    if (gameSpeed > 85)
+                    if (gameDelayAfterStep > 85)
                     {
                         secondFood = foodspawner.spawnFood(50, 10);
                     }
@@ -142,12 +165,12 @@ namespace Snake {
                     }
                     secondFood = foodspawner.spawnFood();
                     secondFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
-                    if (gameSpeed < 50) firstTimer.addSeconds(gameSpeed / 10 - 1);
-                    else if (gameSpeed < 70 && gameSpeed >= 50) firstTimer.addSeconds(gameSpeed / 10 - 3);
-                    else if (gameSpeed < 100 && gameSpeed >= 70) firstTimer.addSeconds(gameSpeed / 10 - 5);
-                    else firstTimer.addSeconds(gameSpeed / 10);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep < 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 1);
+                    else if (gameDelayAfterStep < 70 && gameDelayAfterStep >= 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 3);
+                    else if (gameDelayAfterStep < 100 && gameDelayAfterStep >= 70) firstTimer.addSeconds(gameDelayAfterStep / 10 - 5);
+                    else firstTimer.addSeconds(gameDelayAfterStep / 10);
                 }
                 else
                 {
@@ -158,7 +181,7 @@ namespace Snake {
                 if (secondSnake.eat(firstFood))
                 {
                     firstFood.getPoint('#');
-                    if (gameSpeed > 85)
+                    if (gameDelayAfterStep > 85)
                     {
                         firstFood = foodspawner.spawnFood(10, gameFiledLength, gameFiledHeigth);
                     }
@@ -168,17 +191,17 @@ namespace Snake {
                     }
                     firstFood = foodspawner.spawnFood();
                     firstFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
-                    if (gameSpeed < 50) firstTimer.addSeconds(gameSpeed / 10 - 1);
-                    else if (gameSpeed < 70 && gameSpeed >= 50) firstTimer.addSeconds(gameSpeed / 10 - 3);
-                    else if (gameSpeed < 100 && gameSpeed >= 70) firstTimer.addSeconds(gameSpeed / 10 - 5);
-                    else firstTimer.addSeconds(gameSpeed / 10);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep < 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 1);
+                    else if (gameDelayAfterStep < 70 && gameDelayAfterStep >= 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 3);
+                    else if (gameDelayAfterStep < 100 && gameDelayAfterStep >= 70) firstTimer.addSeconds(gameDelayAfterStep / 10 - 5);
+                    else firstTimer.addSeconds(gameDelayAfterStep / 10);
                 }
                 else if (secondSnake.eat(secondFood))
                 {
                     secondFood.getPoint('#');
-                    if (gameSpeed > 85)
+                    if (gameDelayAfterStep > 85)
                     {
                         secondFood = foodspawner.spawnFood(10, gameFiledLength, gameFiledHeigth);
                     }
@@ -188,12 +211,12 @@ namespace Snake {
                     }
                     secondFood = foodspawner.spawnFood();
                     secondFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
-                    if (gameSpeed < 50) firstTimer.addSeconds(gameSpeed / 10 - 1);
-                    else if (gameSpeed < 70 && gameSpeed >= 50) firstTimer.addSeconds(gameSpeed / 10 - 3);
-                    else if (gameSpeed < 100 && gameSpeed >= 70) firstTimer.addSeconds(gameSpeed / 10 - 5);
-                    else firstTimer.addSeconds(gameSpeed / 10);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep < 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 1);
+                    else if (gameDelayAfterStep < 70 && gameDelayAfterStep >= 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 3);
+                    else if (gameDelayAfterStep < 100 && gameDelayAfterStep >= 70) firstTimer.addSeconds(gameDelayAfterStep / 10 - 5);
+                    else firstTimer.addSeconds(gameDelayAfterStep / 10);
                 }
                 else
                 {
@@ -202,7 +225,7 @@ namespace Snake {
 
                 lock (potionTimer)
                 {
-                    Thread.Sleep(gameSpeed);
+                    Thread.Sleep(gameDelayAfterStep);
                 }
 
                 if (Console.KeyAvailable)
@@ -211,7 +234,7 @@ namespace Snake {
                     firstSnake.handleKeyArrow(key.Key);
                     secondSnake.handleKeyWASD(key.Key);
 
-                    // Осторожно, костыль!!!!!
+                    // Осторожно, костыль!!!!! (Workaround)
                     for (int i = 0 + Wall.getStartPosition(); i <= gameFiledHeigth + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
@@ -219,6 +242,7 @@ namespace Snake {
 
                 }
 
+                // Fifth stage
                 // Time block
                 firstTimer.writeCountDown(gameFiledLength / 5, 2, Convert.ToInt32(time));
 
@@ -236,15 +260,15 @@ namespace Snake {
 
             gameFiledHeigth = 24;
             gameFiledLength = 75;
-            gameSpeed = 80;
-            changeSpeedAfterEat = 4;
+            gameDelayAfterStep = 80;
+            changeDelayAfterEat = 4;
 
             int deltaChangeSpeedAfterEat = 2;
-            int initialSpeed = gameSpeed;
+            int initialSpeed = gameDelayAfterStep;
 
             Wall wall = new Wall(gameFiledLength, gameFiledHeigth);
 
-            GetInformationPanel.inputTheGameInformation(gameFiledLength);
+            InformationPanel.inputTheGameInformation(gameFiledLength);
 
             Point beginSnakePoint = new Point(2, 2 + Wall.getStartPosition(), '*');
             TSnake snake = new TSnake(beginSnakePoint, 4, Direction.right);
@@ -280,7 +304,7 @@ namespace Snake {
                 {
                     // food logic
                     food.getPoint('*');
-                    if (gameSpeed > 72)
+                    if (gameDelayAfterStep > 72)
                     {
                         food = foodspawner.spawnFood(30, 10);
                     }
@@ -290,14 +314,14 @@ namespace Snake {
                     }
                     food.getPoint();
                     deltaChangeSpeedAfterEat = randomObject.Next(0, 2);
-                    if (gameSpeed > 25) { gameSpeed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep > 25) { gameDelayAfterStep -= (changeDelayAfterEat - deltaChangeSpeedAfterEat); }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
 
                     // changeTime logic
-                    if (gameSpeed < 50) firstTimer.addSeconds(gameSpeed / 10);
-                    else if (gameSpeed < 70 && gameSpeed >= 50) firstTimer.addSeconds(gameSpeed / 10 - 2);
-                    else if (gameSpeed < 100 && gameSpeed >= 70) firstTimer.addSeconds(gameSpeed / 10 - 4);
-                    else firstTimer.addSeconds(gameSpeed / 10);
+                    if (gameDelayAfterStep < 50) firstTimer.addSeconds(gameDelayAfterStep / 10);
+                    else if (gameDelayAfterStep < 70 && gameDelayAfterStep >= 50) firstTimer.addSeconds(gameDelayAfterStep / 10 - 2);
+                    else if (gameDelayAfterStep < 100 && gameDelayAfterStep >= 70) firstTimer.addSeconds(gameDelayAfterStep / 10 - 4);
+                    else firstTimer.addSeconds(gameDelayAfterStep / 10);
 
                 }
                 else
@@ -325,6 +349,8 @@ namespace Snake {
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.handleKeyArrow(key.Key);
+
+                    // Workaround
                     for (int i = 0 + Wall.getStartPosition(); i <= gameFiledHeigth + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
@@ -333,7 +359,7 @@ namespace Snake {
 
                 lock (potionTimer)
                 {
-                    Thread.Sleep(gameSpeed);
+                    Thread.Sleep(gameDelayAfterStep);
                 }
 
             }
@@ -347,12 +373,12 @@ namespace Snake {
 
             gameFiledHeigth = 27;
             gameFiledLength = 115;
-            gameSpeed = 90;
-            changeSpeedAfterEat = 2;
+            gameDelayAfterStep = 90;
+            changeDelayAfterEat = 2;
 
             Wall wall = new Wall(gameFiledLength, gameFiledHeigth);
 
-            GetInformationPanel.inputTheGameInformation(gameFiledLength);
+            InformationPanel.inputTheGameInformation(gameFiledLength);
 
             Point beginSnakePoint_1 = new Point(2, 2 + Wall.getStartPosition(), '*');
             TSnake firstSnake = new TSnake(beginSnakePoint_1, 4, Direction.right);
@@ -381,16 +407,16 @@ namespace Snake {
                     firstFood.getPoint('*');
                     firstFood = foodspawner.spawnFood();
                     firstFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
                 }
                 else if (firstSnake.eat(secondFood))
                 {
                     secondFood.getPoint('*');
                     secondFood = foodspawner.spawnFood();
                     secondFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
                 }
                 else
                 {
@@ -403,23 +429,23 @@ namespace Snake {
                     firstFood.getPoint('#');
                     firstFood = foodspawner.spawnFood();
                     firstFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
                 }
                 else if (secondSnake.eat(secondFood))
                 {
                     secondFood.getPoint('#');
                     secondFood = foodspawner.spawnFood();
                     secondFood.getPoint();
-                    if (gameSpeed > 40) { gameSpeed -= changeSpeedAfterEat; }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep > 40) { gameDelayAfterStep -= changeDelayAfterEat; }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
                 }
                 else
                 {
                     secondSnake.toDirection();
                 }
 
-                Thread.Sleep(gameSpeed);
+                Thread.Sleep(gameDelayAfterStep);
 
                 if (Console.KeyAvailable)
                 {
@@ -427,7 +453,7 @@ namespace Snake {
                     firstSnake.handleKeyArrow(key.Key);
                     secondSnake.handleKeyWASD(key.Key);
 
-                    // Осторожно, костыль!!!!!
+                    // Осторожно, костыль!!!!! (Workaround)
                     for (int i = 0 + Wall.getStartPosition(); i <= gameFiledHeigth + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');
@@ -450,8 +476,8 @@ namespace Snake {
             Random randomObject = new Random();
             gameFiledHeigth = 25;
             gameFiledLength = 75;
-            gameSpeed = 80;
-            changeSpeedAfterEat = 3;
+            gameDelayAfterStep = 80;
+            changeDelayAfterEat = 3;
 
             //      I left param "deltaChangeSpeedAfterEat" as it is therefore
             //      it was necessary to preserve the opportunity to copy/paste and configurate this method
@@ -459,7 +485,7 @@ namespace Snake {
 
             Wall wall = new Wall(gameFiledLength, gameFiledHeigth);
 
-            GetInformationPanel.inputTheGameInformation(gameFiledLength);
+            InformationPanel.inputTheGameInformation(gameFiledLength);
 
             Point beginSnakePoint = new Point(2, 2 + Wall.getStartPosition(), '*');
             TSnake snake = new TSnake(beginSnakePoint, 4, Direction.right);
@@ -483,8 +509,8 @@ namespace Snake {
                     food = foodspawner.spawnFood();
                     food.getPoint();
                     deltaChangeSpeedAfterEat = randomObject.Next(0,2);
-                    if (gameSpeed > 25) { gameSpeed -= (changeSpeedAfterEat - deltaChangeSpeedAfterEat); }
-                    GetInformationPanel.inputTheGameInformation(gameFiledLength);
+                    if (gameDelayAfterStep > 25) { gameDelayAfterStep -= (changeDelayAfterEat - deltaChangeSpeedAfterEat); }
+                    InformationPanel.inputTheGameInformation(gameFiledLength);
                 }
                 else
                 {
@@ -492,14 +518,14 @@ namespace Snake {
                 }
 
 
-                Thread.Sleep(gameSpeed);
+                Thread.Sleep(gameDelayAfterStep);
 
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.handleKeyArrow(key.Key);
 
-                    // Осторожно, костыль!!!!!
+                    // Осторожно, костыль!!!!! (Workaround)
                     for (int i = 0 + Wall.getStartPosition(); i <= gameFiledHeigth + Wall.getStartPosition(); i++)
                     {
                         Point.drawTheNotIdentificatedPoint(0, i, '+');

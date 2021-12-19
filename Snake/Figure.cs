@@ -3,10 +3,14 @@ using System.Threading;
 
 namespace Snake
 {
-    public class Figure{
+    // Based class for operations with figures
+    public abstract class Figure{
 
         protected List<Point> pointList;
 
+        // This getLine() methods lets draw initialized point list
+        // First method's override draws point list without delay
+        // Second method's override draws point list with delay (using for drawing game walls)
         public void getLine() {
             foreach (Point p in pointList) {
                 p.getPoint();
@@ -22,6 +26,7 @@ namespace Snake
             }
         }
 
+        // This methods let checking to contact between different Figure objects
         internal bool IsHit(Figure _figure) {
             foreach (var _p in pointList) {
                 if (_figure.IsHit(_p)) {

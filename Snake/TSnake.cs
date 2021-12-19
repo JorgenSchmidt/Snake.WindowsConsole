@@ -8,6 +8,7 @@ namespace Snake {
 
         private Direction currentDirection;
         
+        // For initialization the snake
         public TSnake(Point _tail, int _length, Direction _dir) {
 
             pointList = new List<Point>();
@@ -21,6 +22,7 @@ namespace Snake {
 
         }
 
+        // For snake's move (snakes elements as queue)
         internal void toDirection() 
         {
             Point tail = pointList.First();
@@ -31,6 +33,7 @@ namespace Snake {
             head.getPoint();
         }
 
+        // Logic of consume the food by a snake
         internal bool eat(Point _food) {
             Point head = getMeNextPoint();
             if (head.isHit(_food)) 
@@ -42,6 +45,7 @@ namespace Snake {
             return false;
         }
 
+        // Lets get new next point for snake
         public Point getMeNextPoint()
         {
             Point head = pointList.Last();
@@ -50,6 +54,7 @@ namespace Snake {
             return nextPoint;
         }
 
+        // For change direction for snake
         public void handleKeyArrow(ConsoleKey key) 
         {
             Direction _lastDirection = currentDirection;
@@ -118,6 +123,7 @@ namespace Snake {
 
         }
 
+        // For checking first snakes element by contact with other elements
         internal bool isHitTail() {
 
             var head = pointList.Last();
@@ -130,6 +136,7 @@ namespace Snake {
             return false;
         }
 
+        // Logic of consume potion by a snake
         public bool isHitPotion (SpawnPotions _sp, ref char _potionSymbol, ref int _potionNumber)
         {
             List<Point> potions = _sp.getPotionsList();

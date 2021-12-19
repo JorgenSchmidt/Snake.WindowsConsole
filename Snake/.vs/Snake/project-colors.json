@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "cbdce213-2017-4afe-b5f5-83a7c55b4a5d": {
+      "ProjectGuid": "cbdce213-2017-4afe-b5f5-83a7c55b4a5d",
+      "DisplayName": "Snake",
+      "ColorIndex": 0
+    },
+    "e1f33b47-93ac-414e-ba32-fdd01a52d176": {
+      "ProjectGuid": "e1f33b47-93ac-414e-ba32-fdd01a52d176",
+      "DisplayName": "SnakeTest",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
