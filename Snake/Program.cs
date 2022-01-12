@@ -32,8 +32,8 @@ namespace Snake {
 
                     case 1: firstMode(); break;
                     case 2: secondMode(); break;
+                    case 3: thirdMode(); break;
                     case 4: fourthMode(); break;
-                    case 5: fifthMode(); break;
                     default: Console.WriteLine("Error. Introduced a non-existent game mode."); break;
 
                 }
@@ -58,7 +58,7 @@ namespace Snake {
         // 4. Begin the game cycle
         // 5. When the user falls, calls the game over menu and if necessary, the counters are reset to zero
 
-        private static void fifthMode()
+        private static void fourthMode()
         {
 
             Random randomObject = new Random();
@@ -253,7 +253,7 @@ namespace Snake {
 
         }
 
-        private static void fourthMode()
+        private static void thirdMode()
         {
             Random randomObject = new Random();
             TimeCountDown firstTimer = new TimeCountDown(0, 6);
