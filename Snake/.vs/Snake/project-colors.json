@@ -10,7 +10,12 @@
       "ProjectGuid": "e1f33b47-93ac-414e-ba32-fdd01a52d176",
       "DisplayName": "SnakeTest",
       "ColorIndex": 1
+    },
+    "09161c5c-ed99-40db-bb51-f7c0ac9dce8c": {
+      "ProjectGuid": "09161c5c-ed99-40db-bb51-f7c0ac9dce8c",
+      "DisplayName": "Snake.Core",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }
